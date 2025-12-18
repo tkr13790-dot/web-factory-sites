@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビルゲイッ - 意識の高い人たちが集まるカフェ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans JP を使用してモダンな雰囲気を再現 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 見本の緑色 (#34A800に近い) を再現するためにカスタムカラーを設定 */
+        .bg-custom-green { background-color: #34A800; }
+        .text-custom-green { color: #34A800; }
+        .border-custom-green { border-color: #34A800; }
+        .hover\:bg-custom-green-dark:hover { background-color: #2e9600; }
+
+        /* 全体フォント設定 */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333333; /* 濃いめのグレー */
+        }
+        /* 見本のキャッチコピーのフォントサイズとウェイトを再現 */
+        .hero-title {
+            font-size: 2.75rem; /* 約44px */
+            line-height: 1.4;
+            font-weight: 700;
+        }
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem; /* 約56px */
+                line-height: 1.3;
+            }
+        }
+
+        /* セクションタイトルの再現 */
+        .section-h2 {
+            font-size: 2.25rem; /* 36px */
+            line-height: 1.4;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- 1. ヘッダー -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- ロゴ -->
+            <div class="flex items-center">
+                <span class="text-2xl font-black flex items-center">
+                    <span class="text-custom-green mr-1">B</span><span class="text-gray-800">ill Gate</span>
+                </span>
+            </div>
+
+            <!-- ナビゲーション (PC) -->
+            <nav class="hidden lg:flex space-x-8 items-center text-sm font-medium">
+                <a href="#concept" class="text-gray-600 hover:text-custom-green">コンセプト</a>
+                <a href="#menu" class="text-gray-600 hover:text-custom-green">メニュー</a>
+                <a href="#gallery" class="text-gray-600 hover:text-custom-green">ギャラリー</a>
+                <a href="#access" class="text-gray-600 hover:text-custom-green">店舗情報</a>
+                <a href="#topics" class="text-gray-600 hover:text-custom-green">トピックス</a>
+                
+                <!-- CTAボタン: 見本に忠実な緑のボタンとライムイエローのボタン -->
+                <a href="#" class="px-5 py-3 rounded-full text-white bg-custom-green hover:bg-custom-green-dark transition duration-300 shadow-lg font-bold">
+                    未来を語る
+                </a>
+                <a href="#" class="px-5 py-3 rounded-full text-gray-800 bg-lime-300 hover:bg-lime-400 transition duration-300 shadow-lg font-bold">
+                    予約
+                </a>
+            </nav>
+
+            <!-- モバイルメニューボタン (見本にはないが、レスポンシブ用にスペースを確保) -->
+            <div class="lg:hidden">
+                <button class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. メインビジュアル (Hero Section) -->
+    <section id="concept" class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+            
+            <!-- テキストエリア (左側) -->
+            <div class="lg:w-1/2 z-10 pr-0 lg:pr-12 mb-10 lg:mb-0">
+                <!-- サブタイトル -->
+                <p class="text-lg font-bold text-gray-600 mb-2">
+                    沖縄県与那原町 / 意識の高い人々の集積地
+                </p>
+                
+                <!-- メインキャッチコピー -->
+                <h1 class="hero-title text-gray-900 mb-6">
+                    知性を高め、<br>
+                    世界を変える<br>
+                    デジタル・茶室
+                </h1>
+                
+                <!-- 説明文 -->
+                <p class="text-base text-gray-700 mb-8 max-w-lg">
+                    ビルゲイッは、未来の課題を議論し、新たなアイデアを生み出すための、サイバーパンクなオアシスです。極上のコーヒーと高速回線が、あなたの思考を加速させます。
+                </p>
+
+                <!-- CTAボタン -->
+                <a href="#" class="inline-flex items-center px-8 py-4 bg-gray-100 rounded-full text-lg font-bold text-gray-800 hover:bg-gray-200 transition duration-300 shadow-md">
+                    <svg class="w-6 h-6 mr-3 text-custom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    ビルゲイッとは
+                </a>
+            </div>
+
+            <!-- 画像/イラストエリア (右側) -->
+            <div class="lg:w-1/2 relative flex justify-end">
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
+                     <img src="https://picsum.photos/1200/600" alt="サイバーカフェ内装イメージ" class="w-full h-full object-cover">
+                </div>
+
+                <!-- 見本のグリーンの大きなシェイプを再現 -->
+                <div class="absolute inset-y-0 right-0 w-3/5 bg-custom-green opacity-20 transform skew-x-12 -mr-40 hidden lg:block" style="z-index: 1;"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. メニュー (Service Sectionの再現) -->
+    <section id="menu" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-16">
+                <!-- テキストエリア (左側) -->
+                <div class="lg:w-1/2 mb-10 lg:mb-0 pr-0 lg:pr-16">
+                    <p class="text-sm font-bold tracking-wider text-custom-green uppercase mb-2">
+                        Menu & Services
+                    </p>
+                    <h2 class="section-h2 text-gray-900 mb-6">
+                        イーロン・コーヒー<br>
+                        と極限集中ドリンク
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-8 max-w-lg">
+                        私たちはただのカフェではありません。未来のリーダーたちが必要とする最高の燃料を提供します。集中力を最大化する特製ドリンクで、あなたのポテンシャルを引き出します。
+                    </p>
+                    
+                    <!-- CTAボタン (見本に忠実) -->
+                    <a href="#" class="inline-flex items-center px-8 py-4 bg-white rounded-full text-lg font-bold border-2 border-custom-green text-custom-green hover:bg-custom-green hover:text-white transition duration-300 shadow-md">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        ドリンク一覧を見る
+                    </a>
+                </div>
+
+                <!-- メインメニューアイテム (右側: 画像を3つ並べる部分を再現) -->
+                <div class="lg:w-1/2 flex space-x-4 overflow-x-auto pb-4 lg:pb-0">
+                    <!-- アイテム 1: イーロン・コーヒー -->
+                    <div class="flex-shrink-0 w-64 md:w-80">
+                        <img src="https://picsum.photos/400/300?random=1" alt="イーロン・コーヒー" class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
+                        <p class="font-bold text-xl text-gray-900">イーロン・コーヒー ¥800</p>
+                        <p class="text-sm text-gray-600">最上級のエチオピア産豆を使用。未来のテスラ会議で提供される予定のブレンド。</p>
+                    </div>
+                    <!-- アイテム 2: AIブーストティー -->
+                    <div class="flex-shrink-0 w-64 md:w-80">
+                        <img src="https://picsum.photos/400/300?random=2" alt="AIブーストティー" class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
+                        <p class="font-bold text-xl text-gray-900">AIブーストティー ¥750</p>
+                        <p class="text-sm text-gray-600">集中力維持のためのアダプトゲン配合。コードを書く前の儀式に最適。</p>
+                    </div>
+                    <!-- アイテム 3: 量子ケーキ -->
+                    <div class="flex-shrink-0 w-64 md:w-80">
+                        <img src="https://picsum.photos/400/300?random=3" alt="量子ケーキ" class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
+                        <p class="font-bold text-xl text-gray-900">量子ケーキ ¥600</p>
+                        <p class="text-sm text-gray-600">グルテンフリー。カロリーを意識させない、計算し尽くされたデザート。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ギャラリー (Project Sectionの再現) -->
+    <section id="gallery" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- タイトルエリア -->
+            <div class="mb-12">
+                <p class="text-sm font-bold tracking-wider text-custom-green uppercase mb-2">
+                    Gallery
+                </p>
+                <h2 class="section-h2 text-gray-900 mb-4">
+                    意識が同期する場所
+                </h2>
+                <p class="text-lg text-gray-700 max-w-2xl">
+                    ミニマムなデザインと高速ネット環境。ビルゲイッの内装は、効率と創造性のために設計されています。
+                </p>
+            </div>
+
+            <!-- カードレイアウト (見本の事例紹介セクションを再現) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-4">
+                
+                <!-- カード 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <!-- 画像とカテゴリタグ -->
+                    <div class="relative">
+                        <img src="https://picsum.photos/400/300?random=4" alt="デジタルノマド専用席" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-custom-green text-white">WORK SPACE</span>
+                    </div>
+                    <!-- テキスト -->
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">デジタルノマド専用席</h3>
+                        <p class="text-sm text-gray-600 mb-4">人間工学に基づいたチェアとデュアルモニター環境。</p>
+                        <p class="text-xs text-gray-500">#集中 #高速WiFi #電源</p>
+                    </div>
+                </div>
+
+                <!-- カード 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/400/300?random=5" alt="ディープラーニングゾーン" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-gray-400 text-white">MEETING</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">ディープラーニングゾーン</h3>
+                        <p class="text-sm text-gray-600 mb-4">静音設計の個室。ブレストやオンライン会議に最適。</p>
+                        <p class="text-xs text-gray-500">#防音 #プライバシー #予約制</p>
+                    </div>
+                </div>
+
+                <!-- カード 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/400/300?random=6" alt="ウォータースタンド" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-yellow-500 text-white">RECHARGE</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">ハイエンド・ウォータースタンド</h3>
+                        <p class="text-sm text-gray-600 mb-4">水素水とオーガニックフルーツが無限に補給可能。</p>
+                        <p class="text-xs text-gray-500">#水分補給 #ヘルスケア #無料</p>
+                    </div>
+                </div>
+
+                <!-- カード 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/400/300?random=7" alt="テラス席" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-blue-500 text-white">OUTSIDE</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">量子テラス席</h3>
+                        <p class="text-sm text-gray-600 mb-4">沖縄の風を感じながら、非同期なリラックスタイムを。</p>
+                        <p class="text-xs text-gray-500">#沖縄 #リラックス #日差し</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- すべての事例を見るボタン (見本の下部のボタンを再現) -->
+            <div class="mt-12 flex justify-end">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-base font-bold text-gray-700 hover:bg-gray-100 transition duration-300">
+                    <svg class="w-5 h-5 mr-2 text-custom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    すべての画像を見る
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 5. アクセス情報 (Recruit Sectionの再現) -->
+    <section id="access" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start">
+                
+                <!-- テキストエリア (左側) -->
+                <div class="lg:w-1/2 lg:pr-16 mb-10 lg:mb-0">
+                    <p class="text-sm font-bold tracking-wider text-custom-green uppercase mb-2">
+                        Access Information
+                    </p>
+                    <h2 class="section-h2 text-gray-900 mb-6">
+                        未来への接続点
+                    </h2>
+                    
+                    <!-- コンセプト詳細 -->
+                    <p class="text-xl font-bold text-gray-800 mb-4">
+                        デジタルな聖地は、沖縄の太陽の下に。
+                    </p>
+                    <p class="text-base text-gray-700 mb-6">
+                        最高の環境で思考を深められるよう、あえて賑やかな観光地から離れた、静かで洗練された場所に位置しています。集中したい時、アイディアを煮詰めたい時に最適なロケーションです。
+                    </p>
+                    
+                    <!-- 店舗情報 -->
+                    <p class="text-lg font-bold text-gray-900 mt-8">【店舗情報】</p>
+                    <p class="text-base text-gray-700">所在地: 沖縄県与那原町あがり浜第二公園 敷地内</p>
+                    <p class="text-base text-gray-700">営業時間: 09:00 - 22:00 (年中無休)</p>
+                    <p class="text-base text-gray-700">アクセス: 南風原南ICより車で10分</p>
+
+
+                    <!-- CTAボタン群 (見本に忠実なボタンデザイン) -->
+                    <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        
+                        <a href="#" class="inline-flex items-center px-8 py-4 bg-white rounded-full text-lg font-bold border-2 border-custom-green text-custom-green hover:bg-custom-green hover:text-white transition duration-300 shadow-md w-full sm:w-auto justify-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657m11.314 0a10.001 10.001 0 00-16.974-6.364M6.343 16.657a10.001 10.001 0 0116.974-6.364"></path></svg>
+                            Google Mapを見る
+                        </a>
+                        
+                        <a href="#" class="inline-flex items-center px-8 py-4 bg-white rounded-full text-lg font-bold border-2 border-gray-300 text-gray-800 hover:bg-gray-100 transition duration-300 shadow-md w-full sm:w-auto justify-center">
+                            <svg class="w-6 h-6 mr-3 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M16 14h.01M21 17h-2.586a1 1 0 01-.707-.293l-4.707-4.707a1 1 0 00-.707-.293H9.414a1 1 0 00-.707.293L4.293 16.707A1 1 0 013.586 17H3V6a2 2 0 012-2h14a2 2 0 012 2v11z"></path></svg>
+                            イベントを確認
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 画像エリア (右側) -->
+                <div class="lg:w-1/2 relative">
+                    <!-- 見本のイメージを再現: 人が写っている写真 -->
+                    <div class="relative w-full rounded-xl overflow-hidden shadow-2xl">
+                         <img src="https://picsum.photos/1200/600?random=8" alt="意識の高い人々" class="w-full h-auto object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. トピックス (News Sectionの再現) -->
+    <section id="topics" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col lg:flex-row justify-between">
+                
+                <!-- 左側: タイトル -->
+                <div class="lg:w-1/3 mb-10 lg:mb-0">
+                    <p class="text-sm font-bold tracking-wider text-custom-green uppercase mb-2">
+                        Topics
+                    </p>
+                    <h2 class="section-h2 text-gray-900">
+                        最新の動向
+                    </h2>
+                    
+                    <!-- 一覧を見るボタン -->
+                    <a href="#" class="mt-6 inline-flex items-center text-lg font-bold text-gray-700 hover:text-custom-green transition duration-300">
+                        <svg class="w-6 h-6 mr-2 text-custom-green" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"></path></svg>
+                        トピックス一覧を見る
+                    </a>
+                </div>
+
+                <!-- 右側: お知らせリスト -->
+                <div class="lg:w-2/3 divide-y divide-gray-200">
+                    
+                    <!-- 項目 1 -->
+                    <div class="py-4 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-100 transition duration-150 cursor-pointer pr-4">
+                        <div class="flex items-center mb-2 md:mb-0">
+                            <span class="text-sm text-gray-500 mr-4">2024.12.25</span>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-custom-green text-white mr-4">お知らせ</span>
+                        </div>
+                        <p class="text-base text-gray-700 flex-grow">
+                            【緊急】年越しハッカソン開催決定！参加者募集開始。
+                        </p>
+                        <svg class="w-4 h-4 text-custom-green flex-shrink-0 mt-2 md:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+
+                    <!-- 項目 2 -->
+                    <div class="py-4 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-100 transition duration-150 cursor-pointer pr-4">
+                        <div class="flex items-center mb-2 md:mb-0">
+                            <span class="text-sm text-gray-500 mr-4">2024.12.01</span>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500 text-white mr-4">イベント</span>
+                        </div>
+                        <p class="text-base text-gray-700 flex-grow">
+                            NFTアーティストによる作品展示会「デジタル曼荼羅」開催。
+                        </p>
+                        <svg class="w-4 h-4 text-custom-green flex-shrink-0 mt-2 md:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+
+                    <!-- 項目 3 -->
+                    <div class="py-4 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-100 transition duration-150 cursor-pointer pr-4">
+                        <div class="flex items-center mb-2 md:mb-0">
+                            <span class="text-sm text-gray-500 mr-4">2024.11.15</span>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-yellow-500 text-white mr-4">メディア</span>
+                        </div>
+                        <p class="text-base text-gray-700 flex-grow">
+                            意識高い系雑誌『FOCUS』に掲載されました。
+                        </p>
+                        <svg class="w-4 h-4 text-custom-green flex-shrink-0 mt-2 md:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTAバナー (Recruit/Contactバナーの再現) -->
+    <section class="bg-custom-green py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            
+            <p class="text-lg font-bold uppercase tracking-widest mb-2">
+                Contact
+            </p>
+            <h3 class="text-3xl lg:text-5xl font-extrabold mb-4">
+                未来への接続は、こちらから
+            </h3>
+            <p class="text-lg mb-10 opacity-90">
+                イベントの企画、提携、その他お問い合わせは、お気軽にご連絡ください。
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <!-- 見本のCTAボタンに忠実なデザイン（白背景に緑の矢印） -->
+                <a href="#" class="inline-flex items-center px-10 py-4 bg-white rounded-full text-lg font-bold text-gray-800 hover:bg-gray-100 transition duration-300 shadow-xl">
+                    <svg class="w-6 h-6 mr-3 text-custom-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    お問い合わせフォーム
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. フッター -->
+    <!-- 見本は非常に濃いダークグレーを使用 -->
+    <footer class="bg-gray-800 text-gray-300 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- 上部: ロゴと基本情報 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 border-b border-gray-700 pb-10 mb-8">
+                
+                <!-- 企業情報 (左側) -->
+                <div class="col-span-1 lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                         <span class="text-3xl font-black flex items-center">
+                            <span class="text-custom-green mr-1">B</span><span class="text-white">ill Gate</span>
+                        </span>
+                    </div>
+                    <p class="text-sm mb-4">
+                        意識の高い人たちが集まるカフェ
+                    </p>
+                    <p class="text-sm">
+                        沖縄県与那原町あがり浜第二公園
+                    </p>
+                    <p class="text-sm mt-1">
+                        TEL: 050-XXXX-XXXX
+                    </p>
+                </div>
+                
+                <!-- ナビゲーションリンク -->
+                <div>
+                    <p class="text-base font-bold text-white mb-3">サイトマップ</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#concept" class="hover:text-custom-green transition">コンセプト</a></li>
+                        <li><a href="#menu" class="hover:text-custom-green transition">メニュー</a></li>
+                        <li><a href="#gallery" class="hover:text-custom-green transition">ギャラリー</a></li>
+                        <li><a href="#access" class="hover:text-custom-green transition">店舗情報</a></li>
+                    </ul>
+                </div>
+                
+                <!-- その他リンク -->
+                <div>
+                    <p class="text-base font-bold text-white mb-3">サポート</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-custom-green transition">トピックス</a></li>
+                        <li><a href="#" class="hover:text-custom-green transition">プライバシーポリシー</a></li>
+                        <li><a href="#" class="hover:text-custom-green transition">お問い合わせ</a></li>
+                        <li><a href="#" class="hover:text-custom-green transition">予約</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 著作権表示 -->
+            <div class="flex justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Bill Gate. All Rights Reserved.</p>
+                <a href="#" class="hover:text-custom-green">利用規約</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

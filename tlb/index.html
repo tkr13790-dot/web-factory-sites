@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【とらいち】本格焼き鳥と美酒の店 | TOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #2c2c2c; /* 墨色 */
+            --accent-color: #cc3300; /* 赤（炎） */
+            --text-color: #f7f7f7;
+            --bg-light: #ffffff;
+            --bg-dark: #1a1a1a;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--main-color);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        /* --------------------
+            HEADER & NAVIGATION
+        -------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+        .logo span {
+            font-size: 16px;
+            display: block;
+            color: var(--main-color);
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 16px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --------------------
+            HERO SECTION (インパクト重視)
+        -------------------- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 炎と焼き鳥の画像でインパクトを出す */
+            background: url('https://source.unsplash.com/random/1600x1000/?yakitori,flame,izakaya') no-repeat center center/cover;
+            filter: brightness(0.7); 
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 5;
+            color: var(--text-color);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 8vw; 
+            font-weight: 700;
+            letter-spacing: 15px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+        
+        .hero .shop-name {
+             border-bottom: 5px solid var(--accent-color);
+             display: inline-block;
+             padding-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 2vw;
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            animation: fadeInUp 1.5s ease-out 0.5s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent-color);
+            color: var(--text-color);
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 700;
+            border: 3px solid var(--accent-color);
+            transition: background 0.3s, border-color 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--text-color);
+        }
+
+        /* Animation */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* --------------------
+            SECTION COMMON
+        -------------------- */
+        main {
+            padding-top: 80px; 
+        }
+
+        section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .sub-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* --------------------
+            CONCEPT SECTION
+        -------------------- */
+        .concept-grid {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            align-items: center;
+            text-align: left;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .concept-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .concept-text h3 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--main-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        
+        .concept-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .concept-image {
+            flex: 1;
+            overflow: hidden;
+            border: 5px solid var(--main-color);
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .concept-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        .concept-image:hover img {
+            transform: scale(1.05);
+        }
+
+
+        /* --------------------
+            MENU PREVIEW
+        -------------------- */
+        .menu-preview {
+            background-color: #f7f7f7;
+            border-top: 1px solid #eee;
+        }
+
+        .menu-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            width: 30%;
+            background: var(--bg-light);
+            border: 1px solid #ddd;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .card-body p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* --------------------
+            ACCESS & INFO
+        -------------------- */
+        .info {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            padding: 60px 5%;
+        }
+
+        .info h2 {
+            color: var(--text-color);
+        }
+        .info h2::after {
+            background: var(--accent-color);
+        }
+        .info .sub-text {
+            color: #aaa;
+        }
+
+        .info-details {
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            border: 1px solid #444;
+            padding: 30px;
+        }
+
+        .info-details p {
+            margin: 15px 0;
+            font-size: 18px;
+            font-family: var(--font-serif);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #555;
+            padding-bottom: 5px;
+        }
+        .info-details strong {
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        .reservation-cta {
+            margin-top: 40px;
+        }
+
+        /* --------------------
+            FOOTER
+        -------------------- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--main-color);
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Responsive adjustment (Mobile Friendly) */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 3%;
+            }
+            nav ul {
+                display: none; 
+            }
+            .logo {
+                font-size: 24px;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            .hero h1 {
+                font-size: 12vw;
+                letter-spacing: 5px;
+            }
+            .hero p {
+                font-size: 4vw;
+            }
+
+            section {
+                padding: 40px 3%;
+            }
+            
+            .concept-grid {
+                flex-direction: column;
+                margin-top: 30px;
+            }
+            .concept-text {
+                padding-right: 0;
+                text-align: center;
+            }
+            .concept-text h3 {
+                 border-left: none;
+                 padding-left: 0;
+                 border-bottom: 2px solid var(--accent-color);
+                 padding-bottom: 10px;
+            }
+            .concept-text p {
+                text-align: left;
+            }
+
+            .concept-image {
+                order: -1;
+                margin-bottom: 20px;
+            }
+            
+            .menu-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .card {
+                width: 100%;
+            }
+            
+            .info-details p {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .info-details strong {
+                width: auto;
+                margin-bottom: 5px;
+            }
+            .cta-button {
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            とらいち <span>Yakitori Dining</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="about.html">CONCEPT</a></li>
+                <li><a href="contact.html">ACCESS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション (インパクト重視) -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="shop-name">とらいち</h1>
+                <p>炎と煙が織りなす、至高の串。<br>大人のためのモダン焼き鳥屋。</p>
+                <a href="#access-info" class="cta-button">営業時間・アクセスを確認する</a>
+            </div>
+        </section>
+
+        <!-- コンセプトセクション -->
+        <section class="concept">
+            <h2>とらいちのこだわり</h2>
+            <p class="sub-text">CONCEPT</p>
+            <div class="concept-grid">
+                <div class="concept-text">
+                    <h3>熟練の技と厳選素材</h3>
+                    <p>当店の焼き鳥は、毎日仕入れる新鮮な鶏肉を、熟練の職人が一本一本丁寧に串打ちし、備長炭の強火で一気に焼き上げます。外はパリッと、中はジューシー。秘伝のタレと塩で素材本来の味を最大限に引き出します。</p>
+                    <p>和風モダンな空間で、落ち着いた時間と本格的な味わいをお楽しみください。デートや接待にも最適です。</p>
+                    <a href="about.html" class="cta-button" style="background: transparent; color: var(--main-color); border-color: var(--main-color);">詳しく見る</a>
+                </div>
+                <div class="concept-image">
+                    <!-- 和風モダンをイメージする内装または素材の画像 -->
+                    <img src="https://source.unsplash.com/random/800x600/?japanese+interior,izakaya" alt="和風モダンな店舗内装">
+                </div>
+            </div>
+        </section>
+
+        <!-- メニュープレビューセクション -->
+        <section class="menu-preview">
+            <h2>厳選されたメニュー</h2>
+            <p class="sub-text">MENU PREVIEW</p>
+            <div class="menu-cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://source.unsplash.com/random/400x300/?yakitori,skewers" alt="焼き鳥の画像">
+                    </div>
+                    <div class="card-body">
+                        <h3>至高の焼き鳥</h3>
+                        <p>定番のもも串から、希少部位まで。備長炭で香ばしく焼き上げた職人の一串をご堪能ください。</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://source.unsplash.com/random/400x300/?sake,japanese+alcohol" alt="日本酒の画像">
+                    </div>
+                    <div class="card-body">
+                        <h3>厳選アルコール</h3>
+                        <p>焼き鳥の味を引き立てる、全国から選りすぐった日本酒、焼酎、クラフトビールを取り揃えています。</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://source.unsplash.com/random/400x300/?appetizer,tsukemono" alt="一品料理の画像">
+                    </div>
+                    <div class="card-body">
+                        <h3>季節の一品料理</h3>
+                        <p>旬の食材を活かしたサイドメニューや、〆の一品も充実。いつ来ても新しい発見があります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- アクセス・店舗情報セクション -->
+        <section class="info" id="access-info">
+            <h2>店舗情報</h2>
+            <p class="sub-text">ACCESS & INFORMATION</p>
+            
+            <div class="info-details">
+                <p><strong>所在地</strong><span>宮平123番地</span></p>
+                <p><strong>営業時間</strong><span>17:00〜23:00 (L.O. 22:30)</span></p>
+                <p><strong>定休日</strong><span>不定休</span></p>
+                <p><strong>ご予約</strong><span>098-XXXX-XXXX (お電話にて)</span></p>
+            </div>
+
+            <div class="reservation-cta">
+                <a href="contact.html" class="cta-button">予約・アクセス詳細へ</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <small>&copy; 2024 TORAICHI Yakitori Dining. All rights reserved.</small>
+    </footer>
+
+</body>
+</html>
