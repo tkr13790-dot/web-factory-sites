@@ -2,28 +2,23 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- SEO要件 -->
-    <title>Concept | JPNWORKS株式会社</title>
-    <meta name="description" content="JPNWORKS株式会社。デザインマーケティング会社 人の本質のババを刺激するマーケティングを得意としています。マーケティング。">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-
-    <!-- Google Fonts: シンプル・モダンに合うサンセリフ体 (例: Noto Sans JP を想定) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONCEPT | JPNWORKS株式会社 - 人の本質を刺激するデザインマーケティング</title>
+    <meta name="description" content="JPNWORKS株式会社のコンセプトページ。人の本質のババを刺激する独自のマーケティング戦略と、Amazon1位を獲得した自社商品、成果報酬型コンサルティングをご紹介します。">
     <style>
-        /* CSS Reset and Global Styles */
+        /* CSS VARIABLES */
         :root {
-            --color-primary: #1a1a1a; /* Dark almost black */
-            --color-secondary: #ffffff;
-            --color-accent: #b39b5b; /* Subtle Gold/Brass for modern accent */
-            --spacing-unit: 1rem;
-            --font-body: 'Noto Sans JP', sans-serif;
-            --touch-target-min: 44px;
+            --color-primary: #000000;
+            --color-secondary: #FFFFFF;
+            --color-accent: #B8860B; /* Dark Goldenrod for subtle contrast */
+            --font-family-base: "Helvetica Neue", "Arial", sans-serif;
+            --max-width: 1200px;
+            --spacing-large: 80px;
+            --spacing-medium: 40px;
         }
 
+        /* RESET & BASE STYLES */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -31,21 +26,11 @@
         }
 
         body {
-            font-family: var(--font-body);
-            line-height: 1.7;
+            font-family: var(--font-family-base);
+            line-height: 1.6;
             color: var(--color-primary);
             background-color: var(--color-secondary);
-            -webkit-text-size-adjust: 100%;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--color-primary);
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--color-accent);
+            scroll-behavior: smooth;
         }
 
         img {
@@ -54,267 +39,330 @@
             display: block;
         }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: var(--spacing-unit);
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 0 20px;
         }
 
         section {
-            padding: 4rem 0;
+            padding: var(--spacing-large) 0;
         }
-        
-        /* Header & Navigation (Mobile First) */
-        header {
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: var(--spacing-medium);
+            letter-spacing: 0.1em;
+            font-weight: 300;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+        }
+
+        /* HEADER & NAVIGATION (Flexbox) */
+        .header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eee;
-            padding: 1rem 0;
+            z-index: 100;
+            padding: 15px 0;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 90%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav li a {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav li a:hover {
+            color: var(--color-accent);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+            /* 画像の使用ルール: hero_~.jpg の代わり */
+            background-image: url('https://source.unsplash.com/1600x900/?abstract,modern,strategy');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-secondary);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            font-weight: 100;
+            letter-spacing: 0.2em;
+        }
+
+        .hero p.tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .logo a {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--color-primary);
+        /* CONCEPT SECTION */
+        .concept-section {
+            background-color: #f8f8f8;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 0.5rem;
+        .concept-section h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
         }
 
-        nav a {
-            /* タッチターゲット44px以上を確保 */
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: var(--touch-target-min);
-            padding: 0 1rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- Main Content Layout --- */
-
-        .hero-concept {
-            padding: 6rem 0;
-            text-align: center;
-            background-color: #f7f7f7;
-        }
-
-        .hero-concept h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
-
-        .hero-concept p {
-            font-weight: 300;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-
-        /* Concept Detail Section */
-        .concept-detail {
-            background-color: var(--color-secondary);
-        }
-
-        .concept-grid {
-            /* モバイルでは縦積み */
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .concept-text h2 {
-            color: var(--color-accent);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-        
-        .concept-text h3 {
+        .concept-core {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-
-        /* Services/Menu Section */
-        .services-section {
-            background-color: #f7f7f7;
-            padding: 4rem 0;
+            font-weight: 700;
+            color: var(--color-primary);
+            padding: 40px;
+            border: 2px solid var(--color-accent);
+            display: inline-block;
+            margin: 20px auto 0 auto;
+            text-align: center;
         }
         
-        .service-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr; /* モバイルは1列 */
-            gap: 2rem;
+        /* MENU SECTION (CSS Grid) */
+        .service-section {
+            background-color: var(--color-secondary);
         }
 
-        .service-item {
-            border: 1px solid #ddd;
-            padding: 2rem;
-            background-color: var(--color-secondary);
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            border: 1px solid #eee;
+            overflow: hidden;
+            text-align: left;
             transition: box-shadow 0.3s;
         }
-
-        .service-item:hover {
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        
+        .menu-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .service-item h4 {
-            font-size: 1.3rem;
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-item strong {
-            display: block;
-            margin-top: 1rem;
-            color: var(--color-accent);
-        }
-
-        /* Image Gallery */
-        .gallery-section {
-            padding: 4rem 0 6rem;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item img {
+        .menu-item img {
             width: 100%;
             height: 300px;
             object-fit: cover;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-        }
-        .gallery-item img:hover {
-            opacity: 1;
         }
 
-        /* Information */
-        .info-section {
+        .menu-content {
+            padding: 30px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .menu-content h4 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .menu-content p {
+            text-align: left;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+
+        /* CTA & SNS SECTION */
+        .cta-sns {
+            padding: 60px 0;
+            text-align: center;
             background-color: var(--color-primary);
             color: var(--color-secondary);
-            text-align: center;
         }
 
-        .info-section h3 {
-            color: var(--color-accent);
+        .cta-sns h2 {
+            color: var(--color-secondary);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
         }
 
-        /* Call to Action Button */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .sns-button {
+            display: inline-block;
             background-color: var(--color-accent);
             color: var(--color-primary);
-            font-weight: 700;
-            padding: 0.75rem 2rem;
-            margin-top: 2rem;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
             border: none;
-            border-radius: 4px;
-            min-height: var(--touch-target-min); /* 44px確保 */
-            transition: opacity 0.3s, transform 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+            letter-spacing: 0.1em;
         }
 
-        .cta-button:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+        .sns-button:hover {
+            background-color: #ffd700; 
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 20px 0;
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
 
-        /* =======================================
-           PC Layout (Width >= 769px)
-           ======================================= */
-        @media (min-width: 769px) {
-
-            h1 { font-size: 4rem; }
+        /* RESPONSIVE DESIGN (Media Queries) */
+        @media (max-width: 768px) {
             
-            /* Concept Grid: 2カラム化 */
-            .concept-grid {
-                display: grid;
-                grid-template-columns: 2fr 3fr;
-                align-items: center;
-                gap: 5rem;
+            /* General adjustments */
+            section {
+                padding: var(--spacing-medium) 0;
+            }
+            
+            .container {
+                padding: 0 15px;
             }
 
-            .concept-text h3 {
+            /* Header (Flexbox adjustments) */
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav ul {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .nav li a {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            /* Hero */
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
+
+            .hero p.tagline {
+                font-size: 1.1rem;
+            }
             
-            /* Service Grid: 2列化 */
-            .service-list {
-                grid-template-columns: repeat(2, 1fr);
+            /* Content */
+            h2 {
+                font-size: 1.8rem;
             }
 
-            /* Gallery: 3列または5列 (画像の数に応じて最適化) */
-            .image-gallery {
-                grid-template-columns: repeat(5, 1fr); /* 5枚の画像を横並び */
+            p {
+                font-size: 1rem;
+            }
+            
+            .concept-core {
+                font-size: 1.3rem;
+                padding: 25px 15px;
+                line-height: 1.5;
             }
 
-            .gallery-item:nth-child(1) {
-                grid-column: span 2; /* 1枚目を大きく見せる */
+            /* Menu (Grid adjustments - vertical stacking) */
+            .menu-grid {
+                grid-template-columns: 1fr; 
+                gap: 30px;
             }
-            .gallery-item:nth-child(5) {
-                grid-column: span 2;
-            }
-            
-            .gallery-item img {
-                 height: 400px; 
-            }
-            
-            .gallery-item:nth-child(1) img,
-            .gallery-item:nth-child(5) img {
-                 height: 450px; 
+
+            .menu-item img {
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            <div class="logo"><a href="index.html">JPNWORKS</a></div>
-            <nav>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">JPNWORKS</div>
+            <nav class="nav">
                 <ul>
                     <li><a href="index.html">TOP</a></li>
-                    <li><a href="about.html" aria-current="page">CONCEPT</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
                     <li><a href="contact.html">ACCESS</a></li>
                 </ul>
             </nav>
@@ -322,99 +370,96 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-concept">
-            <div class="container">
-                <p>STORY & MISSION</p>
-                <h1>企業の本質を刺激する</h1>
+        <!-- HERO SECTION: メインビジュアル -->
+        <section class="hero" role="banner">
+            <div class="hero-text">
+                <p class="tagline">DESIGN DRIVEN MARKETING</p>
+                <h1>JPNWORKS CO., LTD.</h1>
+                <p class="tagline">本質を突き、市場のババを刺激する</p>
             </div>
         </section>
 
-        <!-- Concept Detail Section -->
-        <section class="concept-detail">
+        <!-- CONCEPT SECTION: 企業理念 -->
+        <section class="concept-section">
             <div class="container">
-                <div class="concept-grid">
-                    <div class="concept-text">
-                        <h2>OUR CONCEPT</h2>
-                        <h3>デザインマーケティング会社<br>人の本質のババを刺激するマーケティングを得意としています。</h3>
-                    </div>
-                    <div class="concept-story">
-                        <p>私たちは単なる広告代理店ではありません。人々の深層心理、行動原理、そして「本質のババ」を刺激することに特化したデザインマーケティングのプロフェッショナル集団です。</p>
-                        <p>現代の市場は情報過多であり、表面的なデザインやメッセージは簡単に埋もれます。JPNWORKSは、データに基づいた緻密な戦略と、感情に訴えかけるクリエイティブな表現を融合させ、顧客の認知の深部に永続的な印象を築き上げます。</p>
-                        <p>成果にコミットし、クライアントの成長を最大化することが私たちの使命です。</p>
-                    </div>
+                <h2>OUR CORE CONCEPT</h2>
+                <p>
+                    JPNWORKS株式会社は、単なる表面的なデザインや施策に留まりません。
+                    私たちは、ターゲットとなる「人」の深層心理、すなわち「本質のババ」を的確に捉え、
+                    感情と行動を突き動かすデザインマーケティングを得意としています。
+                </p>
+                <div class="concept-core">
+                    <p>
+                        "人の本質のババを刺激する"<br>
+                        — 感情、欲望、そして真実のニーズにダイレクトに響く戦略を。
+                    </p>
                 </div>
             </div>
         </section>
         
-        <!-- Services Section -->
-        <section class="services-section">
+        <!-- SERVICE / MENU SECTION: 商品とコンサルティング -->
+        <section class="service-section">
             <div class="container">
                 <h2>SERVICES & MENU</h2>
-                <p>JPNWORKSが提供する具体的なソリューションと主要製品です。</p>
-                
-                <ul class="service-list">
-                    <li class="service-item">
-                        <h4>コンサルティング (成果報酬型)</h4>
-                        <p>戦略設計から実行、改善まで、一貫してサポートします。初期費用を抑え、リスクを最小限に抑えたい企業様へ最適です。</p>
-                        <strong>成果報酬型 売り上げの10% (1年間)</strong>
-                    </li>
-                    <li class="service-item">
-                        <h4>PUZZLE TRIPPER (自社商品)</h4>
-                        <p>Amazonにて売上1位を獲得した実績を持つ、人々の知的好奇心を刺激する独創的な自社開発プロダクト。マーケティングの応用例としても活用されています。</p>
-                        <strong>Amazon売上1位獲得実績あり</strong>
-                    </li>
-                    <li class="service-item">
-                        <h4>ブランド・アイデンティティ構築</h4>
-                        <p>ロゴデザイン、VI開発、トーン＆マナーの策定を通じて、競合他社と明確に差別化できるブランドの核を創造します。</p>
-                        <strong>長期的なブランド価値向上に貢献</strong>
-                    </li>
-                    <li class="service-item">
-                        <h4>デジタルマーケティング運用</h4>
-                        <p>SEO、SNS戦略、コンテンツ制作、広告運用を統合的に実施し、高いROI（投資対効果）を目指します。</p>
-                        <strong>データドリブンな意思決定</strong>
-                    </li>
-                </ul>
-            </div>
-        </section>
+                <div class="menu-grid">
+                    
+                    <!-- Item 1: 自社商品 (menu_~.jpg) -->
+                    <article class="menu-item">
+                        <img src="https://source.unsplash.com/600x400/?minimal,puzzle,product" alt="PUZZLE TRIPPERのイメージ">
+                        <div class="menu-content">
+                            <h3>自社商品開発・販売</h3>
+                            <h4>PUZZLE TRIPPER</h4>
+                            <span class="badge">Amazon カテゴリランキング 1位獲得</span>
+                            <p>
+                                独自のデザイン思考とマーケティング戦略の集大成として生まれた自社開発商品です。
+                                市場の潜在的な需要を掘り起こし、独自のポジションを確立しました。商品企画からブランディング、販売戦略まで一貫して成功事例を構築します。
+                            </p>
+                        </div>
+                    </article>
 
-        <!-- Image Gallery Section -->
-        <section class="gallery-section">
-            <div class="container">
-                <h2>VISUAL IMPACT</h2>
-                <div class="image-gallery">
-                    <!-- 画像はUnsplashを使用してモダンな印象を強調 -->
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/800x600/?abstract,strategy" alt="戦略的なボードルームの風景">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x600/?minimalist,architecture" alt="モダンな建築物とデザイン">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/800x500/?idea,puzzle" alt="アイデアとパズル">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x550/?minimal,office" alt="ミニマルなオフィス空間">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/800x650/?data,design" alt="データビジュアライゼーション">
-                    </div>
+                    <!-- Item 2: コンサルティング (menu_~.jpg) -->
+                    <article class="menu-item">
+                        <img src="https://source.unsplash.com/600x400/?strategy,consulting,minimal" alt="コンサルティング風景">
+                        <div class="menu-content">
+                            <h3>デザインマーケティング コンサルティング</h3>
+                            <h4>成果報酬型パートナーシップ</h4>
+                            <span class="badge">契約売上の10%を成果報酬として頂きます (1年間)</span>
+                            <p>
+                                お客様の事業成長にコミットする成果報酬型のコンサルティングを提供します。
+                                リスクを最小限に抑え、確実な結果を目指します。デザイン戦略、コンテンツ最適化、ブランド再構築を通じて、持続可能な成長を実現します。
+                            </p>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
-
-        <!-- Information / CTA -->
-        <section class="info-section">
+        
+        <!-- CTA & SNS SECTION (目立つボタン配置) -->
+        <section class="cta-sns">
             <div class="container">
-                <h3>CONTACT & ACCESS</h3>
-                <p>沖縄県松尾123-45</p>
-                <a href="contact.html" class="cta-button">
-                    コンサルティングの相談をする
+                <h2>結果を追求するパートナーシップを</h2>
+                <p>
+                    私たちの戦略と実績にご興味をお持ちいただけましたら、ぜひSNSで日々の活動をご覧ください。
+                </p>
+                <a 
+                    href="https://tkr13790-dot.github.io/web-factory-sites/tkr/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="sns-button"
+                >
+                    最新の活動をSNSでチェック
                 </a>
             </div>
         </section>
 
     </main>
-    
+
+    <footer class="footer">
+        <div class="container">
+            <small>&copy; 2024 JPNWORKS Co., Ltd. All Rights Reserved.</small>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -2,19 +2,22 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Access | JPNWORKS株式会社</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JPNWORKS株式会社。デザインマーケティング会社 人の本質のババを刺激するマーケティングを得意としています。。マーケティング。">
-    <!-- シンプル・モダンなデザインのために、モダンなゴシック体を指定 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <title>ACCESS | JPNWORKS株式会社 - デザインマーケティング</title>
+    <meta name="description" content="JPNWORKS株式会社へのアクセス情報、所在地地図、交通案内をご覧いただけます。人の本質を刺激するデザインマーケティングを提供しています。">
+    
     <style>
-        /* 1. Reset and Global Styles */
+        /* -------------------- */
+        /* 1. リセット & 基本設定 */
+        /* -------------------- */
         :root {
-            --color-primary: #007bff; /* アクセントカラー (モダンな青) */
-            --color-secondary: #333; /* テキストカラー */
-            --color-background: #f5f5f5;
-            --color-white: #ffffff;
+            --color-primary: #1a1a1a; /* ほぼ黒 */
+            --color-secondary: #ffffff; /* 白 */
+            --color-accent: #c40000; /* 赤（ブランドカラー案） */
+            --color-bg-light: #f5f5f5;
+            --font-main: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Meiryo', sans-serif;
+            --padding-section: 80px 40px;
         }
 
         *, *::before, *::after {
@@ -23,364 +26,415 @@
             padding: 0;
         }
 
-        html {
-            font-size: 16px;
-        }
-
         body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
-            color: var(--color-secondary);
-            background-color: var(--color-white);
+            font-family: var(--font-main);
+            color: var(--color-primary);
+            line-height: 1.7;
+            background-color: var(--color-secondary);
         }
 
         a {
-            color: var(--color-primary);
             text-decoration: none;
-        }
-
-        /* Utility Class */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* 2. Header & Navigation (Mobile First: Stacked) */
-        .header {
-            background-color: var(--color-white);
-            border-bottom: 1px solid #eee;
-            padding: 1rem;
-        }
-
-        .header__inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--color-secondary);
-        }
-
-        .nav__list {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .nav__item a {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            font-weight: 700;
+            color: var(--color-primary);
             transition: color 0.3s;
         }
 
-        .nav__item a[aria-current="page"] {
-            color: var(--color-primary);
-            border-bottom: 2px solid var(--color-primary);
+        a:hover {
+            color: var(--color-accent);
         }
 
-        /* 3. Main Content Layout (Mobile: Vertical) */
-        main {
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 0 20px;
         }
 
-        .section-title {
-            font-size: 2rem;
+        h1, h2, h3 {
             font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-            border-bottom: 3px solid var(--color-primary);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
         }
 
-        /* Flexbox for Information and Map */
-        .content-wrapper {
+        /* -------------------- */
+        /* 2. ヘッダー & ナビゲーション */
+        /* -------------------- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--color-bg-light);
+            padding: 15px 0;
+        }
+
+        .header .container {
             display: flex;
-            flex-direction: column; /* スマホでは縦並び */
-            gap: 3rem;
-            margin-bottom: 3rem;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .info-card h3, .map-container h3, .action-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .logo a {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
             color: var(--color-primary);
-            border-left: 5px solid var(--color-primary);
-            padding-left: 0.5rem;
         }
-        
-        .address {
-            font-style: normal;
-            font-weight: 700;
-            margin-bottom: 1rem;
+
+        .nav ul {
+            display: flex;
+            list-style: none;
         }
-        .map-placeholder {
-            /* 地図画像のラッパー */
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .map-placeholder img {
-            width: 100%;
-            height: auto;
+
+        .nav li a {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             display: block;
+            text-transform: uppercase;
         }
-        
-        /* 4. Buttons (Minimum 44px height for mobile tappability) */
-        .button {
-            display: inline-flex;
+
+        /* -------------------- */
+        /* 3. ヒーローセクション */
+        /* -------------------- */
+        .hero {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: #333; /* フォールバック */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('hero_office_building_modern.jpg'); /* メインビジュアル */
+            background-size: cover;
+            background-position: center 60%;
+            opacity: 0.8;
+            filter: grayscale(100%);
+        }
+
+        .hero-content {
+            position: relative;
+            color: var(--color-secondary);
+            z-index: 5;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* -------------------- */
+        /* 4. アクセスマップセクション */
+        /* -------------------- */
+        .access-map {
+            padding: var(--padding-section);
+            background-color: var(--color-bg-light);
+        }
+
+        .access-map h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 500px;
+            background-color: #ccc;
+            border: 1px solid #ddd;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* 地図のプレースホルダー */
+            display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 48px; /* 44px以上の要件を満たす */
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s, opacity 0.3s;
-            text-align: center;
-            line-height: 1; /* 行の高さを調整してパディングを有効にする */
+            font-size: 16px;
+            color: #555;
         }
 
-        .primary-button {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            width: 100%; /* モバイルで押しやすいよう幅いっぱい */
-            margin-top: 1rem;
-        }
-        .primary-button:hover {
-            background-color: #0056b3;
+        /* -------------------- */
+        /* 5. 詳細情報セクション */
+        /* -------------------- */
+        .details {
+            padding: var(--padding-section);
         }
 
-        .map-link {
-            background-color: #f0f0f0;
-            color: var(--color-secondary);
-            border: 1px solid #ccc;
-            margin-top: 1rem;
-            width: 100%;
-        }
-        .map-link:hover {
-            background-color: #e0e0e0;
-        }
-
-        /* 5. Action Grid (Call to Action: CSS Grid) */
-        .action-grid {
+        .details-grid {
             display: grid;
-            /* スマホでは1カラム */
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            padding: 1.5rem;
-            background-color: var(--color-background);
-            border-radius: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .action-card {
-            padding: 1.5rem;
-            background: var(--color-white);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        .info-box {
+            padding: 30px;
+            border-left: 4px solid var(--color-accent);
+            background-color: var(--color-secondary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .sns-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
+        .info-box h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            color: var(--color-accent);
         }
+
+        .info-box p {
+            margin-bottom: 10px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .transport-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .transport-list li {
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .transport-list li::before {
+            content: "→";
+            position: absolute;
+            left: -20px;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* -------------------- */
+        /* 6. CTA & SNS */
+        /* -------------------- */
+        .cta-sns {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: var(--color-bg-light);
+            border-top: 1px solid #ddd;
+        }
+
         .sns-button {
-            flex-grow: 1;
-            color: var(--color-white);
-            font-size: 0.9rem;
+            display: inline-block;
+            padding: 12px 30px;
+            margin-top: 20px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            border-radius: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-transform: uppercase;
         }
 
-        .twitter { background-color: #1DA1F2; }
-        .instagram { 
-            background: #d6249f; /* シンプルモダンのためグラデーションは抑えめに */
-        }
-        .twitter:hover, .instagram:hover { opacity: 0.9; }
-
-        /* 6. Image Gallery */
-        .image-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* スマホでは1カラム */
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .image-grid img {
-            width: 100%;
-            height: 200px; /* モバイルでの高さを制限 */
-            object-fit: cover;
-            border-radius: 4px;
+        .sns-button:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
         }
 
-        /* 7. Footer */
+        /* -------------------- */
+        /* 7. フッター */
+        /* -------------------- */
         .footer {
+            background-color: var(--color-primary);
+            color: #aaa;
+            padding: 30px 0;
             text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid #eee;
-            background-color: var(--color-white);
-            font-size: 0.875rem;
-            color: #666;
+            font-size: 14px;
         }
 
-        /* =======================================
-           8. Media Query (PC View: Min Width 769px)
-           ======================================= */
-        @media (min-width: 769px) {
+        /* -------------------- */
+        /* 8. レスポンシブ対応 (スマホ対応) */
+        /* -------------------- */
+        @media (max-width: 768px) {
             
-            /* Header */
-            .header__inner {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .logo {
-                margin-bottom: 0;
+            :root {
+                --padding-section: 60px 20px;
             }
 
-            /* Content Layout: Horizontal */
-            .content-wrapper {
-                flex-direction: row;
-                gap: 4rem;
+            .header .container {
+                flex-direction: column;
             }
-            .info-card {
-                flex: 2; /* 情報を少し広く取る */
+
+            .nav ul {
+                padding-top: 10px;
+                justify-content: center;
             }
-            .map-container {
-                flex: 3; /* 地図を大きく表示 */
+
+            .nav li a {
+                padding: 8px 10px;
+                font-size: 13px;
             }
-            
-            .map-link {
-                width: auto;
-                float: right;
+
+            .hero {
+                height: 250px;
             }
-            
-            /* Action Grid: 2 Columns */
-            .action-grid {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 3rem;
-            }
-            
-            .primary-button {
-                width: auto; /* PCでは幅を広げすぎない */
+
+            .hero h1 {
+                font-size: 36px;
             }
             
-            /* Image Gallery: 3 Columns */
-            .image-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .hero p {
+                font-size: 15px;
             }
-            .image-grid img {
-                height: 300px;
+
+            .access-map h2 {
+                font-size: 26px;
+            }
+
+            .map-wrapper {
+                height: 350px;
+            }
+            
+            .details-grid {
+                /* デフォルトのgrid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); で自動的に縦並びになる */
+                gap: 30px;
             }
         }
     </style>
 </head>
 <body>
+
     <header class="header">
-        <div class="header__inner">
-            <div class="logo">JPNWORKS株式会社</div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">JPNWORKS</a>
+            </div>
             <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html">TOP</a></li>
-                    <li class="nav__item"><a href="about.html">CONCEPT</a></li>
-                    <li class="nav__item"><a href="contact.html" aria-current="page">ACCESS</a></li>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
+                    <li><a href="contact.html" aria-current="page">ACCESS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="access-section">
-            <h2 class="section-title">Access & Company Details</h2>
+        
+        <!-- ヒーローセクション (ACCESSタイトル) -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>ACCESS</h1>
+                <p>所在地と交通アクセス情報</p>
+            </div>
+        </section>
 
-            <div class="content-wrapper">
+        <!-- アクセスマップ -->
+        <section class="access-map">
+            <div class="container">
+                <h2>MAP & LOCATION</h2>
+                
+                <div class="map-wrapper">
+                    <!-- 地図のiFrameプレースホルダー（実際の地図を埋め込む） -->
+                    <iframe class="map-iframe" 
+                        src="https://maps.google.com/maps?q=東京都&output=embed&z=15" 
+                        title="JPNWORKS株式会社の所在地地図"
+                        allowfullscreen>
+                        <p>地図の読み込みに失敗しました。住所をご確認ください。</p>
+                    </iframe>
+                </div>
+                
+            </div>
+        </section>
 
-                <!-- 1. 基本情報 -->
-                <div class="info-card location-info">
-                    <h3>会社概要と所在地</h3>
-                    <p class="address">
-                        〒900-0015<br>
-                        沖縄県松尾123-45
-                    </p>
-                    <p class="concept">
-                        デザインマーケティング会社として、人の本質のババを刺激する、深い洞察に基づいた戦略を得意としています。
-                    </p>
+        <!-- 詳細情報 -->
+        <section class="details">
+            <div class="container">
+                <div class="details-grid">
                     
-                    <div class="menu-info">
-                        <h4>主なサービス/商品</h4>
-                        <ul class="service-list">
-                            <li>自社商品: PUZZLE TRIPPER (Amazonカテゴリー1位獲得実績)</li>
-                            <li>コンサルティング: 成果報酬型 (売り上げの10% / 1年間契約)</li>
+                    <div class="info-box address-info">
+                        <h3>所在地情報 (HEAD OFFICE)</h3>
+                        <p><strong>JPNWORKS株式会社</strong></p>
+                        <p>〒100-XXXX<br>
+                        東京都千代田区丸の内X丁目Y番地Z号<br>
+                        XXXXビルディング 5F</p>
+                        <p>電話番号: 03-XXXX-YYYY</p>
+                        <p>営業時間: 平日 10:00 - 18:00 (土日祝 定休)</p>
+                    </div>
+
+                    <div class="info-box transport-info">
+                        <h3>交通アクセス</h3>
+                        <ul class="transport-list">
+                            <li>JR東京駅 丸の内中央口より 徒歩5分</li>
+                            <li>東京メトロ 大手町駅 B1出口より 徒歩3分</li>
+                            <li>都営地下鉄 三田線 A3出口より 徒歩7分</li>
                         </ul>
+                        <p style="margin-top: 20px; font-style: italic; color: #777;">
+                            ※ご来社の際は、事前に担当者までご連絡をお願いいたします。
+                        </p>
                     </div>
-                </div>
-
-                <!-- 2. 地図とナビゲーション -->
-                <div class="map-container">
-                    <h3>所在地マップ</h3>
-                    <div class="map-placeholder" role="img" aria-label="事務所周辺の地図画像">
-                        <!-- 実際には Google Maps iFrame を埋め込みます -->
-                        <img src="https://source.unsplash.com/random/800x600?okinawa,street" alt="JPNWORKS株式会社の所在地を示す沖縄の地図" loading="lazy">
+                    
+                    <div class="info-box concept-info">
+                        <h3>会社概要 (OUR PHILOSOPHY)</h3>
+                        <p><strong>デザインマーケティング会社</strong></p>
+                        <p>
+                            私たちは、人の本質のババを刺激する、戦略的なデザインマーケティングを得意としています。
+                            独自の視点とクリエイティビティで、顧客の隠れたニーズを発掘し、成果に直結するソリューションを提供します。
+                        </p>
+                        <p style="font-weight: 600;">
+                            主要サービス例: 自社商品PUZZLE TRIPPER (Amazon1位獲得実績)
+                        </p>
+                        <p style="font-size: 14px; color: var(--color-accent);">
+                            コンサルティングは成果報酬型 (売上の10%を1年間) を採用しています。
+                        </p>
                     </div>
-                    <a href="https://maps.google.com/?q=沖縄県松尾123-45" target="_blank" class="button map-link" role="button">Google Mapでルートを確認</a>
-                </div>
 
+                </div>
             </div>
-
-            <!-- 3. 行動喚起セクション (予約/SNS) - CSS Gridでレイアウト -->
-            <div class="action-grid">
-                
-                <div class="action-card booking">
-                    <h3>無料オンライン相談</h3>
-                    <p>専門のコンサルタントが、貴社のマーケティング課題を無料でヒアリングいたします。</p>
-                    <a href="#" class="button primary-button large-button">無料相談を予約する</a>
-                </div>
-                
-                <div class="action-card sns">
-                    <h3>最新情報をチェック</h3>
-                    <p>最先端のマーケティング手法や事例をSNSで発信しています。</p>
-                    <div class="sns-links">
-                        <a href="#" class="button sns-button twitter">X (Twitter)</a>
-                        <a href="#" class="button sns-button instagram">Instagram</a>
-                    </div>
-                </div>
-
-            </div>
-            
         </section>
         
-        <!-- 画像ギャラリー (ブランドイメージ訴求) -->
-        <section class="gallery">
-            <h3 class="visually-hidden">デザインワークとオフィス風景</h3>
-            <div class="image-grid">
-                <img src="https://source.unsplash.com/random/400x300?modern,minimalist,desk" alt="モダンな作業デスクの様子" loading="lazy">
-                <img src="https://source.unsplash.com/random/400x300?marketing,strategy" alt="戦略会議のイメージ" loading="lazy">
-                <img src="https://source.unsplash.com/random/400x300?okinawa,design,building" alt="沖縄の美しい建築とデザイン" loading="lazy">
+        <!-- CTA / SNSリンク -->
+        <section class="cta-sns">
+            <div class="container">
+                <h2>最新情報や実績をチェック</h2>
+                <p>プロジェクトの事例や最新のマーケティングインサイトをSNSで発信しています。</p>
+                <a href="https://tkr13790-dot.github.io/web-factory-sites/tkr/" target="_blank" class="sns-button">
+                    公式SNSをフォロー
+                </a>
             </div>
         </section>
 
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 JPNWORKS株式会社. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 JPNWORKS Corporation. All Rights Reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>

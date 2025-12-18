@@ -1,20 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Top | JPNWORKS株式会社</title>
-    <meta name="description" content="JPNWORKS株式会社。デザインマーケティング会社。人の本質のババを刺激するマーケティングを得意としています。Amazon1位獲得商品や成果報酬型コンサルティングを提供。">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPNWORKS株式会社 | 人の本質を刺激するデザインマーケティング</title>
+    <meta name="description" content="JPNWORKS株式会社は、人の本質のババを刺激する革新的なデザインマーケティングを提供します。Amazon1位獲得商品と成果報酬型コンサルティングで、事業成長を加速させます。">
+    <!-- シンプルモダンなデザインのため、サンセリフ体を使用 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- Base Styles & Variables --- */
+        /* -----------------------------------
+        GLOBAL STYLES & RESET
+        ----------------------------------- */
         :root {
-            --color-primary: #1a1a1a;    /* 濃いグレー/黒 */
-            --color-secondary: #007bff; /* アクセントカラー（モダンな青） */
-            --color-background: #ffffff;
-            --color-light-gray: #f5f5f5;
-            --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            --button-min-size: 44px; /* スマホ押しやすいサイズ */
+            --color-primary: #1a1a1a; /* Dark Black */
+            --color-secondary: #ffffff; /* White */
+            --color-accent: #c09b55; /* Subtle Gold/Brass */
+            --color-text-light: #f5f5f5;
+            --color-text-dark: #333333;
+            --font-jp: 'Noto Sans JP', sans-serif;
+            --font-en: 'Roboto', sans-serif;
         }
 
         *, *::before, *::after {
@@ -28,16 +34,11 @@
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-jp);
             line-height: 1.6;
-            color: var(--color-primary);
-            background-color: var(--color-background);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+            color: var(--color-text-dark);
+            background-color: var(--color-secondary);
+            overflow-x: hidden;
         }
 
         a {
@@ -46,416 +47,385 @@
             transition: color 0.3s;
         }
 
-        /* Container Utility */
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-en);
+            margin-bottom: 0.5em;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding-top: 1.5em;
+            margin-bottom: 1em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
+        /* Utility Classes */
         .section-padding {
-            padding: 4rem 0;
+            padding: 80px 0;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            letter-spacing: 0.1em;
+        .text-accent {
+            color: var(--color-accent);
         }
 
-        /* --- Buttons (44px minimum height enforced) --- */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 700;
-            cursor: pointer;
-            min-height: var(--button-min-size); 
-            transition: background-color 0.3s, transform 0.2s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            text-align: center;
+        /* -----------------------------------
+        HEADER & NAVIGATION
+        ----------------------------------- */
+        .header {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
-        .primary-button {
-            background-color: var(--color-primary);
-            color: var(--color-background);
-        }
-
-        .primary-button:hover {
-            background-color: var(--color-secondary);
-        }
-
-        .secondary-button {
-            background-color: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-
-        .secondary-button:hover {
-            background-color: var(--color-primary);
-            color: var(--color-background);
-        }
-
-        .large-button {
-            font-size: 1.1rem;
-            padding: 1.2rem 3rem;
-            width: 100%; /* Mobile: Full width */
-            max-width: 400px;
-        }
-
-        /* --- Header & Navigation (Mobile: Vertical Stack) --- */
-        #header {
-            background-color: var(--color-background);
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        #header .container {
+        .nav-container {
             display: flex;
-            flex-direction: column; /* Mobile: Column */
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
+            height: 80px;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            padding: 0;
-        }
-
-        nav a {
-            font-size: 0.95rem;
-            padding: 0.5rem 0;
-            display: block;
+            letter-spacing: 2px;
             color: var(--color-primary);
+            font-family: var(--font-en);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex; /* Flexbox for navigation links */
+        }
+
+        .nav li {
+            margin-left: 30px;
+        }
+
+        .nav a {
+            font-family: var(--font-en);
+            font-weight: 400;
+            display: block;
+            padding: 10px 0;
             position: relative;
         }
-
-        /* --- Hero Section (Mobile: Image top, Content bottom) --- */
-        #hero {
+        
+        /* -----------------------------------
+        HERO SECTION (メインビジュアル)
+        ----------------------------------- */
+        .hero {
+            position: relative;
+            height: 85vh;
             display: flex;
-            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding-top: 2rem;
-            background-color: var(--color-light-gray);
+            overflow: hidden;
+            color: var(--color-text-light);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* AI画像ルール: hero_~.jpg を使用 (Unsplash Source代替: モダンな抽象化イメージ) */
+            background: url('hero_innovation.jpg'), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
         }
 
         .hero-content {
-            order: 2; /* Content below image on mobile */
-            padding: 2rem 5%;
+            z-index: 10;
+            padding: 20px;
         }
 
-        .hero-image {
-            order: 1; /* Image above content on mobile */
-        }
-
-        #hero img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            max-height: 400px;
-        }
-
-        .tagline {
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        #hero h2 {
-            font-size: 2rem;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.8rem);
             font-weight: 700;
-            margin-bottom: 2rem;
             line-height: 1.2;
-        }
-        
-        /* --- Concept Section --- */
-        .concept-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1rem;
-            text-align: center;
-            padding: 0 1rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* --- Products Section (Mobile: Vertical Stack using Flex) --- */
-        .product-grid {
-            display: flex;
-            flex-direction: column; /* Mobile: Stack vertically */
-            gap: 2rem;
-        }
-
-        .product-item {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding-bottom: 1.5rem;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        .product-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            padding: 0 1rem;
-        }
-
-        .product-item .rank {
-            color: var(--color-secondary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            padding: 0 1rem;
-        }
-
-        .product-item p {
-            margin-bottom: 1.5rem;
-            padding: 0 1rem;
-        }
-        
-        /* --- CTA Section --- */
-        #cta {
-            background-color: var(--color-primary);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta-message {
-            color: var(--color-background);
+        .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 40px;
             font-weight: 300;
         }
         
-        /* --- Gallery Section (Mobile: Single Column) --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Mobile: Single column */
-            gap: 10px;
+        /* SNSリンクボタン (目立つ位置) */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 700;
+            border: 2px solid var(--color-accent);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .gallery-grid img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--color-accent);
         }
-
-        .gallery-grid img:hover {
-            opacity: 1;
-        }
-
-        /* --- Footer (Mobile: Vertical Stack) --- */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 2rem 0 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        footer .container {
-            display: flex;
-            flex-direction: column; /* Mobile: Stack vertically */
-            gap: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-
-        .footer-info, .footer-nav {
+        
+        /* -----------------------------------
+        CONCEPT SECTION
+        ----------------------------------- */
+        .concept-section {
+            background-color: #f7f7f7;
             text-align: center;
         }
 
-        .footer-logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .concept-text {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        footer address {
-            font-style: normal;
-            line-height: 1.8;
+        .concept-text h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .footer-nav p {
+        .concept-text h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+            margin: 10px auto 0;
+        }
+
+        .concept-text p {
+            color: #555;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        /* -----------------------------------
+        SERVICE SECTION (MENU)
+        ----------------------------------- */
+        .service-grid {
+            /* Gridを使用して、PCでは2列、スマホでは1列 */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 6px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .service-content .tag {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            font-family: var(--font-en);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        /* -----------------------------------
+        TRUST & COMMITMENT SECTION
+        ----------------------------------- */
+        .trust-section {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .trust-grid {
+            /* Gridを使用して、PCでは4列、スマホでは2列 */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .trust-card {
+            background-color: #2c2c2c;
+            padding: 30px 20px;
+            border-radius: 6px;
+        }
+
+        .trust-card h3 {
+            color: var(--color-accent);
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .trust-card p {
+            font-family: var(--font-jp);
+            font-size: 1rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* -----------------------------------
+        FOOTER
+        ----------------------------------- */
+        .footer {
+            background-color: #0d0d0d;
+            color: var(--color-text-light);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         .footer-nav ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .footer-nav li a {
-            color: #ccc;
-            display: block;
-            padding: 0.2rem 0;
+        .footer-nav li {
+            margin: 0 15px;
         }
 
-        .footer-nav li a:hover {
-            color: var(--color-secondary);
+        .footer-nav a {
+            color: var(--color-text-light);
         }
-
-        .copyright {
-            text-align: center;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #444;
-            font-size: 0.8rem;
-        }
-
-
-        /* ======================================= */
-        /* PC/Tablet Styles (min-width 769px) */
-        /* ======================================= */
-        @media (min-width: 769px) {
+        
+        /* -----------------------------------
+        RESPONSIVE DESIGN (Max 768px - Tablet & Smartphone)
+        ----------------------------------- */
+        @media (max-width: 768px) {
             
-            .large-button {
-                width: auto;
+            h2 {
+                font-size: 2rem;
             }
 
-            /* --- Header & Navigation (PC: Horizontal) --- */
-            #header .container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            /* Header (スマホ縦並び対応) */
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
             }
             
             .logo {
-                margin-bottom: 0;
-            }
-            
-            nav ul {
-                gap: 2.5rem;
+                margin-bottom: 15px;
             }
 
-            nav a::after {
-                content: '';
-                display: block;
+            .nav ul {
+                flex-direction: column; /* スマホで縦並び */
                 width: 100%;
-                height: 2px;
-                background: var(--color-primary);
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                transform: scaleX(0);
-                transition: transform 0.3s ease;
-            }
-            
-            nav a:hover::after {
-                transform: scaleX(1);
+                text-align: center;
             }
 
-
-            /* --- Hero Section (PC: Horizontal, Side-by-Side) --- */
-            #hero {
-                flex-direction: row;
-                min-height: 70vh;
-                align-items: center;
-                text-align: left;
-                padding-top: 0;
-            }
-
-            .hero-content {
-                order: 1;
-                flex: 1;
-                padding: 5rem;
+            .nav li {
+                margin: 5px 0;
+                padding: 5px 0;
+                border-bottom: 1px solid #f0f0f0;
             }
             
-            .hero-image {
-                order: 2;
-                flex: 1.2;
-                height: 70vh;
-                overflow: hidden;
+            /* Hero */
+            .hero {
+                height: 60vh;
             }
 
-            #hero img {
-                height: 100%;
-                max-height: none;
-            }
-            
-            #hero h2 {
-                font-size: 3rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
 
-            /* --- Products Section (PC: Grid 2 Columns) --- */
-            .product-grid {
-                flex-direction: unset;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 3rem;
+            .hero p {
+                font-size: 0.9rem;
             }
             
-            /* --- Gallery Section (PC: Grid Complex Layout) --- */
-            .gallery-grid {
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: auto auto;
-                gap: 15px;
-            }
-            
-            .gallery-grid img:nth-child(1) {
-                grid-column: 1 / 3;
-                grid-row: 1 / 2;
-                height: 400px;
-            }
-            
-            .gallery-grid img:nth-child(2) {
-                grid-column: 3 / 5;
-                grid-row: 1 / 2;
-                height: 400px;
+            /* Service */
+            .service-grid {
+                grid-template-columns: 1fr; /* スマホで縦並び */
             }
 
-            .gallery-grid img:nth-child(3) {
-                grid-column: 1 / 2;
-                grid-row: 2 / 3;
-                height: 300px;
+            .service-image {
+                height: 200px;
             }
-            
-            .gallery-grid img:nth-child(4) {
-                grid-column: 2 / 5;
-                grid-row: 2 / 3;
-                height: 300px;
-            }
-            
-            /* --- Footer (PC: Horizontal) --- */
-            footer .container {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-            }
-            
-            .footer-info, .footer-nav {
-                text-align: left;
+
+            /* Trust Section */
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2列で表示 */
             }
         }
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <h1 class="logo">JPNWORKS</h1>
-            <nav>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">JPNWORKS</div>
+            <nav class="nav">
                 <ul>
                     <li><a href="index.html">TOP</a></li>
                     <li><a href="about.html">CONCEPT</a></li>
@@ -465,110 +435,137 @@
         </div>
     </header>
 
-    <main>
-        <!-- ヒーローセクション -->
-        <section id="hero">
-            <div class="hero-content">
-                <p class="tagline">DESIGN & STRATEGY</p>
-                <h2>
-                    人の本質のババを刺激する<br>
-                    デザインマーケティング
-                </h2>
-                <a href="#products" class="cta-button primary-button">サービスを見る</a>
-            </div>
-            <div class="hero-image">
-                <!-- img_0.jpg placeholder -->
-                <img src="https://source.unsplash.com/random/800x600/?abstract,strategy" alt="マーケティングのイメージ画像" loading="eager">
-            </div>
-        </section>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                THINKING BEYOND.<br>
+                人の本質の<span class="text-accent">ババ</span>を刺激する。
+            </h1>
+            <p>
+                常識に囚われない戦略とデザインで、潜在的な市場ニーズを掘り起こし、<br>
+                あなたのビジネスの「本質的な価値」を最大限に引き出します。
+            </p>
+            
+            <!-- SNSリンクボタン（最重要要件） -->
+            <a href="https://tkr13790-dot.github.io/web-factory-sites/tkr/" class="cta-button">
+                SNSで実績をチェックする
+            </a>
+        </div>
+    </section>
 
-        <!-- コンセプトセクション -->
-        <section id="concept" class="section-padding">
-            <div class="container">
-                <h3 class="section-title">CONCEPT</h3>
-                <p class="concept-text">
-                    JPNWORKS株式会社は、単なるデザイン制作会社ではありません。私たちは、人間が持つ根本的な欲求や無意識の動機（ババ）を深く掘り下げ、そこに響く戦略的なデザインとマーケティングを提供します。表面的な美しさだけでなく、本質的な売上とブランドの成長に貢献します。
+    <!-- CONCEPT SECTION -->
+    <section class="concept-section section-padding">
+        <div class="container">
+            <h2>MARKETING <span class="text-accent">PHILOSOPHY</span></h2>
+            <div class="concept-text">
+                <h3>私たちが刺激する「ババ」とは何か</h3>
+                <p>
+                    私たちが定義する「ババ」とは、人が持つ根源的な欲求、すなわち本能的な「核となる要求」を指します。表面的なニーズではなく、顧客の行動を突き動かす深層心理にフォーカスすることで、競合他社が追随できない独創的なデザイン戦略を構築します。
+                </p>
+                <p>
+                    現代の市場は情報過多です。単なる綺麗なデザインやロジカルな説明では、人々の注意を引くことはできません。JPNWORKSは、人の感情と購買行動を動かす"決定的なトリガー"に焦点を当て、記憶に残り、確実な成果に結びつくブランディングを提供します。
                 </p>
             </div>
-        </section>
-        
-        <!-- プロダクト/メニューセクション -->
-        <section id="products" class="section-padding" style="background-color: var(--color-light-gray);">
-            <div class="container">
-                <h3 class="section-title">SERVICES & PRODUCTS</h3>
+        </div>
+    </section>
+
+    <!-- SERVICE SECTION -->
+    <section class="service-section section-padding">
+        <div class="container">
+            <h2>OUR <span class="text-accent">SERVICES</span> & PRODUCTS</h2>
+            <div class="service-grid">
                 
-                <div class="product-grid">
-                    
-                    <div class="product-item">
-                        <div class="product-image">
-                            <!-- img_1.jpg placeholder -->
-                            <img src="https://source.unsplash.com/random/600x400/?puzzle,game" alt="PUZZLE TRIPPERのイメージ">
-                        </div>
-                        <h4>PUZZLE TRIPPER</h4>
-                        <p class="rank">Amazon 知育玩具部門 1位獲得</p>
-                        <p>独自のデザイン哲学に基づき開発された、人の思考力を刺激する自社プロダクト。ユーザーの好奇心を掴み、熱狂的なファンを生み出す仕組みを実証しています。</p>
-                        <a href="#" class="cta-button secondary-button">詳細を見る</a>
+                <!-- サービスカード 1: PUZZLE TRIPPER -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <!-- AI画像ルール: menu_~.jpg を使用 (Unsplash Source代替: 製品イメージ) -->
+                        <img src="menu_puzzletripper.jpg" alt="自社商品 PUZZLE TRIPPER">
                     </div>
-                    
-                    <div class="product-item">
-                        <div class="product-image">
-                            <!-- img_2.jpg placeholder -->
-                            <img src="https://source.unsplash.com/random/600x400/?consulting,business" alt="コンサルティングのイメージ">
-                        </div>
-                        <h4>成果報酬型コンサルティング</h4>
-                        <p class="rank">契約期間: 1年間 / 報酬: 売り上げの10%</p>
-                        <p>結果にコミットする、リスクを最小限に抑えたコンサルティングプラン。貴社の本質的な強みを発掘し、戦略的なデザインと集客導線で売り上げの最大化を実現します。</p>
-                        <a href="#" class="cta-button secondary-button">お問い合わせ</a>
+                    <div class="service-content">
+                        <span class="tag">Product Development</span>
+                        <h3>PUZZLE TRIPPER</h3>
+                        <p>
+                            当社のデザイン思考とマーケティング戦略の集大成として開発された自社商品です。Amazonランキング1位を獲得した実績は、私たちが市場の「ババ」を刺激し、ニッチ市場を切り拓く力があることの証明です。
+                        </p>
+                        <p style="margin-top: 10px; font-weight: 700; color: var(--color-accent);">
+                            実績に基づいた再現性のある戦略。
+                        </p>
                     </div>
-                    
+                </div>
+
+                <!-- サービスカード 2: コンサルティング -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <!-- AI画像ルール: menu_~.jpg を使用 (Unsplash Source代替: 戦略会議イメージ) -->
+                        <img src="menu_consulting.jpg" alt="成果報酬型コンサルティング">
+                    </div>
+                    <div class="service-content">
+                        <span class="tag">Strategic Consulting</span>
+                        <h3>成果報酬型コンサルティング</h3>
+                        <p>
+                            リスクを最小限に抑え、確実な結果を追求するためのコミットメントです。売上向上が確認できた場合のみ、その増加分の10%を1年間いただくという、完全成果報酬型の契約を採用しています。
+                        </p>
+                        <p style="margin-top: 10px; font-weight: 700; color: #b80000;">
+                            成功がなければ、貴社の費用負担はありません。
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- CTAセクション -->
-        <section id="cta">
-            <div class="container">
-                <p class="cta-message">御社のビジネスに本質的な変化をもたらします。</p>
-                <a href="contact.html" class="primary-button large-button">ご相談・お問い合わせ</a>
-            </div>
-        </section>
-        
-        <!-- ギャラリーセクション (デザインの視覚的訴求) -->
-        <section id="gallery" class="section-padding">
-            <div class="container">
-                <h3 class="section-title">WORKS</h3>
-            </div>
-            <div class="gallery-grid">
-                <!-- img_3.jpg placeholder -->
-                <img src="https://source.unsplash.com/random/600x800/?design,minimal" alt="プロジェクト事例1">
-                <!-- img_4.jpg placeholder -->
-                <img src="https://source.unsplash.com/random/800x600/?branding,modern" alt="プロジェクト事例2">
-                <img src="https://source.unsplash.com/random/600x600/?ui,ux" alt="プロジェクト事例3">
-                <img src="https://source.unsplash.com/random/800x500/?webdesign,simple" alt="プロジェクト事例4">
-            </div>
-        </section>
-        
-    </main>
-
-    <footer>
+        </div>
+    </section>
+    
+    <!-- TRUST & ATMOSPHERE SECTION -->
+    <section class="trust-section">
         <div class="container">
-            <div class="footer-info">
-                <p class="footer-logo">JPNWORKS株式会社</p>
-                <address>
-                    〒900-0013<br>
-                    沖縄県那覇市松尾123-45
-                </address>
+            <h2>WHY <span class="text-accent">CHOOSE US</span></h2>
+            
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h3 class="text-accent">10%</h3>
+                    <p>成果報酬コミットメント</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="text-accent">Amazon</h3>
+                    <p>ランキング1位獲得実績</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="text-accent">BABA</h3>
+                    <p>人の本質を刺激する</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="text-accent">MODERN</h3>
+                    <p>最先端のデザイン思考</p>
+                </div>
             </div>
-            <div class="footer-nav">
-                <p>Quick Links</p>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="section-padding" style="text-align: center; background-color: #f7f7f7;">
+        <div class="container">
+            <h2>START YOUR <span class="text-accent">GROWTH</span></h2>
+            <p style="margin-bottom: 30px;">
+                次の成長フェーズへ進むために。お問い合わせは下記より承ります。
+            </p>
+            <a href="contact.html" class="cta-button" style="background-color: var(--color-primary); color: var(--color-text-light); border-color: var(--color-primary);">
+                お問い合わせ・ACCESS
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
                 <ul>
                     <li><a href="index.html">TOP</a></li>
                     <li><a href="about.html">CONCEPT</a></li>
                     <li><a href="contact.html">ACCESS</a></li>
                 </ul>
-            </div>
+            </nav>
+            <p>&copy; 2024 JPNWORKS Corporation. All Rights Reserved.</p>
         </div>
-        <p class="copyright">&copy; 2024 JPNWORKS Corporation. All Rights Reserved.</p>
     </footer>
 
 </body>
