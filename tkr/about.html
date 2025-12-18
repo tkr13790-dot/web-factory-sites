@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- SEO要件 -->
+    <title>Concept | JPNWORKS株式会社</title>
+    <meta name="description" content="JPNWORKS株式会社。デザインマーケティング会社 人の本質のババを刺激するマーケティングを得意としています。マーケティング。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <!-- Google Fonts: シンプル・モダンに合うサンセリフ体 (例: Noto Sans JP を想定) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset and Global Styles */
+        :root {
+            --color-primary: #1a1a1a; /* Dark almost black */
+            --color-secondary: #ffffff;
+            --color-accent: #b39b5b; /* Subtle Gold/Brass for modern accent */
+            --spacing-unit: 1rem;
+            --font-body: 'Noto Sans JP', sans-serif;
+            --touch-target-min: 44px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--color-primary);
+            background-color: var(--color-secondary);
+            -webkit-text-size-adjust: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+        
+        /* Header & Navigation (Mobile First) */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            /* タッチターゲット44px以上を確保 */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: var(--touch-target-min);
+            padding: 0 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Main Content Layout --- */
+
+        .hero-concept {
+            padding: 6rem 0;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+
+        .hero-concept h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-concept p {
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+
+        /* Concept Detail Section */
+        .concept-detail {
+            background-color: var(--color-secondary);
+        }
+
+        .concept-grid {
+            /* モバイルでは縦積み */
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .concept-text h2 {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .concept-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+
+        /* Services/Menu Section */
+        .services-section {
+            background-color: #f7f7f7;
+            padding: 4rem 0;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr; /* モバイルは1列 */
+            gap: 2rem;
+        }
+
+        .service-item {
+            border: 1px solid #ddd;
+            padding: 2rem;
+            background-color: var(--color-secondary);
+            transition: box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-item h4 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-item strong {
+            display: block;
+            margin-top: 1rem;
+            color: var(--color-accent);
+        }
+
+        /* Image Gallery */
+        .gallery-section {
+            padding: 4rem 0 6rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        .gallery-item img:hover {
+            opacity: 1;
+        }
+
+        /* Information */
+        .info-section {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            text-align: center;
+        }
+
+        .info-section h3 {
+            color: var(--color-accent);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            margin-top: 2rem;
+            border: none;
+            border-radius: 4px;
+            min-height: var(--touch-target-min); /* 44px確保 */
+            transition: opacity 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+
+        /* =======================================
+           PC Layout (Width >= 769px)
+           ======================================= */
+        @media (min-width: 769px) {
+
+            h1 { font-size: 4rem; }
+            
+            /* Concept Grid: 2カラム化 */
+            .concept-grid {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                align-items: center;
+                gap: 5rem;
+            }
+
+            .concept-text h3 {
+                font-size: 2.5rem;
+            }
+            
+            /* Service Grid: 2列化 */
+            .service-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Gallery: 3列または5列 (画像の数に応じて最適化) */
+            .image-gallery {
+                grid-template-columns: repeat(5, 1fr); /* 5枚の画像を横並び */
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2; /* 1枚目を大きく見せる */
+            }
+            .gallery-item:nth-child(5) {
+                grid-column: span 2;
+            }
+            
+            .gallery-item img {
+                 height: 400px; 
+            }
+            
+            .gallery-item:nth-child(1) img,
+            .gallery-item:nth-child(5) img {
+                 height: 450px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo"><a href="index.html">JPNWORKS</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html" aria-current="page">CONCEPT</a></li>
+                    <li><a href="contact.html">ACCESS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-concept">
+            <div class="container">
+                <p>STORY & MISSION</p>
+                <h1>企業の本質を刺激する</h1>
+            </div>
+        </section>
+
+        <!-- Concept Detail Section -->
+        <section class="concept-detail">
+            <div class="container">
+                <div class="concept-grid">
+                    <div class="concept-text">
+                        <h2>OUR CONCEPT</h2>
+                        <h3>デザインマーケティング会社<br>人の本質のババを刺激するマーケティングを得意としています。</h3>
+                    </div>
+                    <div class="concept-story">
+                        <p>私たちは単なる広告代理店ではありません。人々の深層心理、行動原理、そして「本質のババ」を刺激することに特化したデザインマーケティングのプロフェッショナル集団です。</p>
+                        <p>現代の市場は情報過多であり、表面的なデザインやメッセージは簡単に埋もれます。JPNWORKSは、データに基づいた緻密な戦略と、感情に訴えかけるクリエイティブな表現を融合させ、顧客の認知の深部に永続的な印象を築き上げます。</p>
+                        <p>成果にコミットし、クライアントの成長を最大化することが私たちの使命です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <h2>SERVICES & MENU</h2>
+                <p>JPNWORKSが提供する具体的なソリューションと主要製品です。</p>
+                
+                <ul class="service-list">
+                    <li class="service-item">
+                        <h4>コンサルティング (成果報酬型)</h4>
+                        <p>戦略設計から実行、改善まで、一貫してサポートします。初期費用を抑え、リスクを最小限に抑えたい企業様へ最適です。</p>
+                        <strong>成果報酬型 売り上げの10% (1年間)</strong>
+                    </li>
+                    <li class="service-item">
+                        <h4>PUZZLE TRIPPER (自社商品)</h4>
+                        <p>Amazonにて売上1位を獲得した実績を持つ、人々の知的好奇心を刺激する独創的な自社開発プロダクト。マーケティングの応用例としても活用されています。</p>
+                        <strong>Amazon売上1位獲得実績あり</strong>
+                    </li>
+                    <li class="service-item">
+                        <h4>ブランド・アイデンティティ構築</h4>
+                        <p>ロゴデザイン、VI開発、トーン＆マナーの策定を通じて、競合他社と明確に差別化できるブランドの核を創造します。</p>
+                        <strong>長期的なブランド価値向上に貢献</strong>
+                    </li>
+                    <li class="service-item">
+                        <h4>デジタルマーケティング運用</h4>
+                        <p>SEO、SNS戦略、コンテンツ制作、広告運用を統合的に実施し、高いROI（投資対効果）を目指します。</p>
+                        <strong>データドリブンな意思決定</strong>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2>VISUAL IMPACT</h2>
+                <div class="image-gallery">
+                    <!-- 画像はUnsplashを使用してモダンな印象を強調 -->
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/800x600/?abstract,strategy" alt="戦略的なボードルームの風景">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x600/?minimalist,architecture" alt="モダンな建築物とデザイン">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/800x500/?idea,puzzle" alt="アイデアとパズル">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x550/?minimal,office" alt="ミニマルなオフィス空間">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/800x650/?data,design" alt="データビジュアライゼーション">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information / CTA -->
+        <section class="info-section">
+            <div class="container">
+                <h3>CONTACT & ACCESS</h3>
+                <p>沖縄県松尾123-45</p>
+                <a href="contact.html" class="cta-button">
+                    コンサルティングの相談をする
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+</body>
+</html>

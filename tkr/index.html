@@ -1,24 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
+    <title>Top | JPNWORKS株式会社</title>
+    <meta name="description" content="JPNWORKS株式会社。デザインマーケティング会社。人の本質のババを刺激するマーケティングを得意としています。Amazon1位獲得商品や成果報酬型コンサルティングを提供。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N・ラボ | トータルビューティーを叶える高級美容クリニック</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* =====================================
-        // CSS Reset & Global Styles
-        ===================================== */
+        /* --- Base Styles & Variables --- */
         :root {
-            --color-primary: #1A1A1A; /* ほぼ黒 */
-            --color-secondary: #FFFFFF; /* 白 */
-            --color-accent-gold: #B8860B; /* 深みのあるゴールド */
-            --color-text-main: #222222;
-            --color-bg-light: #FBFBFB;
-            --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
-            --font-sans: 'Noto Sans JP', sans-serif;
-            --container-width: 1200px;
+            --color-primary: #1a1a1a;    /* 濃いグレー/黒 */
+            --color-secondary: #007bff; /* アクセントカラー（モダンな青） */
+            --color-background: #ffffff;
+            --color-light-gray: #f5f5f5;
+            --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            --button-min-size: 44px; /* スマホ押しやすいサイズ */
         }
 
         *, *::before, *::after {
@@ -32,866 +28,548 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--color-text-main);
-            background-color: var(--color-secondary);
+            font-family: var(--font-family);
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--color-primary);
+            background-color: var(--color-background);
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-serif);
-            line-height: 1.2;
-            font-weight: 700;
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            margin-bottom: 1em;
-            font-size: 1rem;
-            font-weight: 300;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         a {
             text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: 100px 0;
-        }
-        
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .text-gold { color: var(--color-accent-gold); }
-        .bg-dark { background-color: var(--color-primary); color: var(--color-secondary); }
-
-        /* Custom Section Titles */
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 3.5rem;
-            letter-spacing: 0.1em;
-            position: relative;
-            z-index: 2;
-            text-transform: uppercase;
-        }
-
-        .section-title p {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--color-accent-gold);
-            letter-spacing: 0.2em;
-            margin-top: -10px;
-        }
-
-        /* CTA Button Styling */
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--color-accent-gold);
-            color: var(--color-secondary);
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            border: 2px solid var(--color-accent-gold);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--color-accent-gold);
-            box-shadow: none;
-        }
-
-        /* =====================================
-        // Header & Navigation
-        ===================================== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 700;
             color: var(--color-primary);
-        }
-        .logo span {
-            color: var(--color-accent-gold);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li a {
-            padding: 10px 15px;
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        .nav-links li a:hover {
-            color: var(--color-accent-gold);
+        /* Container Utility */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        /* Hidden hamburger menu for desktop */
-        .menu-toggle { display: none; }
 
-        /* =====================================
-        // 1. Hero Area (First View)
-        ===================================== */
-        #hero {
-            height: 100vh;
-            display: flex;
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Buttons (44px minimum height enforced) --- */
+        .cta-button {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            min-height: var(--button-min-size); 
+            transition: background-color 0.3s, transform 0.2s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
             text-align: center;
-            overflow: hidden;
-            /* Placeholder Image: Elegant woman or clinic interior */
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), 
-                        url('https://source.unsplash.com/1600x900/?luxury,beauty,spa') no-repeat center center/cover fixed; 
-            color: var(--color-secondary);
+        }
+
+        .primary-button {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        .primary-button:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .secondary-button:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        .large-button {
+            font-size: 1.1rem;
+            padding: 1.2rem 3rem;
+            width: 100%; /* Mobile: Full width */
+            max-width: 400px;
+        }
+
+        /* --- Header & Navigation (Mobile: Vertical Stack) --- */
+        #header {
+            background-color: var(--color-background);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #header .container {
+            display: flex;
+            flex-direction: column; /* Mobile: Column */
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            display: block;
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        /* --- Hero Section (Mobile: Image top, Content bottom) --- */
+        #hero {
+            display: flex;
+            flex-direction: column; 
+            text-align: center;
+            padding-top: 2rem;
+            background-color: var(--color-light-gray);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 5;
-            padding: 20px;
-            max-width: 800px;
+            order: 2; /* Content below image on mobile */
+            padding: 2rem 5%;
         }
 
-        .hero-content h1 {
-            font-size: 5rem;
-            margin-bottom: 20px;
-            letter-spacing: 0.1em;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        .hero-image {
+            order: 1; /* Image above content on mobile */
         }
 
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-            color: #EAEAEA;
-        }
-        
-        .hero-cta {
-            animation: fadeIn 2s ease-out;
+        #hero img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 400px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: #666;
+            margin-bottom: 0.5rem;
         }
 
-        /* =====================================
-        // 2. Concept Section
-        ===================================== */
-        #concept {
-            background-color: var(--color-bg-light);
-            padding: 120px 0;
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .concept-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--color-accent-gold);
-            letter-spacing: 0.05em;
-        }
-
-        .concept-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .concept-image {
-            height: 450px;
-            /* Placeholder Image: Abstract light and elegance */
-            background: url('https://source.unsplash.com/800x600/?abstract,luxury,gold') no-repeat center center/cover;
-            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* =====================================
-        // 3. Strengths (Features)
-        ===================================== */
-        #strengths {
-            padding: 120px 0;
-        }
-
-        .strengths-grid {
-            display: flex;
-            gap: 40px;
-            justify-content: space-between;
-        }
-
-        .strength-item {
-            flex: 1;
-            text-align: center;
-            padding: 40px 20px;
-            border: 1px solid #E0E0E0;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        
-        .strength-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.1);
-        }
-
-        .strength-item i {
-            font-size: 3rem;
-            color: var(--color-accent-gold);
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        /* Placeholder for Icons (using simple text/emojis if actual icons are unavailable) */
-        .strength-item span.icon-placeholder {
-            font-size: 3rem;
-            color: var(--color-accent-gold);
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .strength-item h4 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--color-primary);
-        }
-
-        .strength-item p {
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        /* =====================================
-        // 4. Menu Details
-        ===================================== */
-        #menu {
-            background-color: var(--color-bg-light);
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 80px;
-            overflow: hidden;
-            border-bottom: 1px solid #E0E0E0;
-            padding-bottom: 80px;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .menu-image {
-            flex: 1;
-            min-height: 400px;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        .menu-content {
-            flex: 1;
-            padding: 0 80px;
-        }
-        
-        .menu-content h3 {
-            font-size: 3rem;
-            color: var(--color-accent-gold);
-            margin-bottom: 15px;
-        }
-
-        .menu-content p {
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-
-        .menu-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .menu-item:nth-child(even) .menu-content {
-            padding: 0 80px 0 0;
-        }
-        
-        .menu-item:nth-child(odd) .menu-content {
-            padding: 0 0 0 80px;
-        }
-
-
-        /* Specific Menu Image Placeholders */
-        #menu-hair-removal {
-            background-image: url('https://source.unsplash.com/800x600/?smooth,skin,laser');
-        }
-        #menu-whitening {
-            background-image: url('https://source.unsplash.com/800x600/?bright,smile,teeth');
-        }
-        #menu-scalp-ink {
-            background-image: url('https://source.unsplash.com/800x600/?hair,scalp,microblading');
-        }
-        #menu-body {
-            background-image: url('https://source.unsplash.com/800x600/?sculpting,wellness,body');
-        }
-
-        /* =====================================
-        // 5. Gallery & Testimonials
-        ===================================== */
-        #gallery-voice {
-            padding: 120px 0;
-        }
-
-        .gallery-wrapper {
-            overflow-x: scroll;
-            white-space: nowrap;
-            padding: 30px 0;
-            margin-bottom: 80px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .gallery-item {
-            display: inline-block;
-            width: 450px;
-            height: 300px;
-            margin-right: 20px;
-            background-size: cover;
-            background-position: center;
-            scroll-snap-align: start;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        /* Gallery Placeholders */
-        .gallery-item:nth-child(1) { background-image: url('https://source.unsplash.com/600x400/?clinic,lobby,luxurious'); }
-        .gallery-item:nth-child(2) { background-image: url('https://source.unsplash.com/600x400/?treatment,room,minimal'); }
-        .gallery-item:nth-child(3) { background-image: url('https://source.unsplash.com/600x400/?staff,professional,beauty'); }
-        .gallery-item:nth-child(4) { background-image: url('https://source.unsplash.com/600x400/?beauty,product,display'); }
-
-
-        /* Testimonials */
-        .voice-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            background-color: var(--color-bg-light);
-            padding: 30px;
-            border-left: 5px solid var(--color-accent-gold);
-            position: relative;
-            font-style: italic;
-        }
-
-        .testimonial-card p {
-            font-size: 1rem;
-            font-weight: 300;
-            color: #555;
-        }
-
-        .testimonial-card .customer {
-            display: block;
-            margin-top: 15px;
-            font-weight: 700;
-            color: var(--color-accent-gold);
-            font-style: normal;
-        }
-        
-        .testimonial-card::before {
-            content: '❝';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 5rem;
-            color: rgba(184, 134, 11, 0.1);
-            line-height: 1;
-        }
-
-
-        /* =====================================
-        // 6. Access & Footer
-        ===================================== */
-        #access {
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            padding-bottom: 0;
-        }
-
-        .access-grid {
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-            gap: 50px;
-            padding-top: 50px;
-        }
-
-        .info-block h3 {
+        #hero h2 {
             font-size: 2rem;
-            color: var(--color-accent-gold);
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
         }
-
-        .info-block p, .info-block ul {
+        
+        /* --- Concept Section --- */
+        .concept-text {
+            max-width: 800px;
+            margin: 0 auto;
             font-size: 1rem;
-            margin-bottom: 15px;
+            text-align: center;
+            padding: 0 1rem;
         }
 
-        .info-block ul {
+        /* --- Products Section (Mobile: Vertical Stack using Flex) --- */
+        .product-grid {
+            display: flex;
+            flex-direction: column; /* Mobile: Stack vertically */
+            gap: 2rem;
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding-bottom: 1.5rem;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .product-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            padding: 0 1rem;
+        }
+
+        .product-item .rank {
+            color: var(--color-secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+
+        .product-item p {
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        /* --- CTA Section --- */
+        #cta {
+            background-color: var(--color-primary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-message {
+            color: var(--color-background);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        /* --- Gallery Section (Mobile: Single Column) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: Single column */
+            gap: 10px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            opacity: 1;
+        }
+
+        /* --- Footer (Mobile: Vertical Stack) --- */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column; /* Mobile: Stack vertically */
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .footer-info, .footer-nav {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer address {
+            font-style: normal;
+            line-height: 1.8;
+        }
+
+        .footer-nav p {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-nav ul {
             list-style: none;
             padding: 0;
         }
 
-        .info-block ul li {
-            padding: 5px 0;
+        .footer-nav li a {
+            color: #ccc;
+            display: block;
+            padding: 0.2rem 0;
         }
 
-        .map-placeholder {
-            /* Placeholder for an embedded map */
-            height: 400px;
-            background: #2A2A2A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-family: var(--font-sans);
-            font-size: 1.2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 50px;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: #888;
-        }
-        
-        /* Final CTA Banner */
-        .cta-banner {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--color-accent-gold);
+        .footer-nav li a:hover {
             color: var(--color-secondary);
         }
 
-        .cta-banner h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .cta-banner .cta-button {
-            background-color: var(--color-secondary);
-            color: var(--color-accent-gold);
-            border: 2px solid var(--color-secondary);
-            box-shadow: none;
-        }
-
-        .cta-banner .cta-button:hover {
-            background-color: var(--color-accent-gold);
-            color: var(--color-secondary);
-            border: 2px solid var(--color-secondary);
+        .copyright {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
         }
 
 
-        /* =====================================
-        // Responsive Design (Mobile First adjustments)
-        ===================================== */
-        @media (max-width: 900px) {
-            .section-padding {
-                padding: 60px 0;
+        /* ======================================= */
+        /* PC/Tablet Styles (min-width 769px) */
+        /* ======================================= */
+        @media (min-width: 769px) {
+            
+            .large-button {
+                width: auto;
             }
 
-            .section-title h2 {
-                font-size: 2.5rem;
+            /* --- Header & Navigation (PC: Horizontal) --- */
+            #header .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
             
-            /* Hero */
-            .hero-content h1 {
+            .logo {
+                margin-bottom: 0;
+            }
+            
+            nav ul {
+                gap: 2.5rem;
+            }
+
+            nav a::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: var(--color-primary);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+            
+            nav a:hover::after {
+                transform: scaleX(1);
+            }
+
+
+            /* --- Hero Section (PC: Horizontal, Side-by-Side) --- */
+            #hero {
+                flex-direction: row;
+                min-height: 70vh;
+                align-items: center;
+                text-align: left;
+                padding-top: 0;
+            }
+
+            .hero-content {
+                order: 1;
+                flex: 1;
+                padding: 5rem;
+            }
+            
+            .hero-image {
+                order: 2;
+                flex: 1.2;
+                height: 70vh;
+                overflow: hidden;
+            }
+
+            #hero img {
+                height: 100%;
+                max-height: none;
+            }
+            
+            #hero h2 {
                 font-size: 3rem;
             }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
 
-            /* Concept */
-            .concept-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .concept-image {
-                height: 300px;
-                order: -1; /* Image first on mobile */
+            /* --- Products Section (PC: Grid 2 Columns) --- */
+            .product-grid {
+                flex-direction: unset;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
             }
             
-            /* Strengths */
-            .strengths-grid {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            /* Menu */
-            .menu-item, .menu-item:nth-child(even) {
-                flex-direction: column;
-                margin-bottom: 60px;
-                padding-bottom: 60px;
+            /* --- Gallery Section (PC: Grid Complex Layout) --- */
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto auto;
+                gap: 15px;
             }
             
-            .menu-content, .menu-item:nth-child(even) .menu-content {
-                padding: 40px 0 0 0;
-                text-align: center;
-            }
-
-            .menu-content h3 {
-                font-size: 2rem;
+            .gallery-grid img:nth-child(1) {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+                height: 400px;
             }
             
-            .menu-image {
-                min-height: 250px;
-                width: 100%;
+            .gallery-grid img:nth-child(2) {
+                grid-column: 3 / 5;
+                grid-row: 1 / 2;
+                height: 400px;
             }
 
-            /* Gallery */
-            .gallery-wrapper {
-                padding: 10px 0;
-            }
-            .gallery-item {
-                width: 80vw;
-                height: 250px;
-                margin-right: 15px;
-            }
-
-            /* Access */
-            .access-grid {
-                grid-template-columns: 1fr;
-            }
-            .map-placeholder {
+            .gallery-grid img:nth-child(3) {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
                 height: 300px;
             }
-
-            /* CTA Banner */
-            .cta-banner h2 {
-                font-size: 1.8rem;
+            
+            .gallery-grid img:nth-child(4) {
+                grid-column: 2 / 5;
+                grid-row: 2 / 3;
+                height: 300px;
+            }
+            
+            /* --- Footer (PC: Horizontal) --- */
+            footer .container {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            
+            .footer-info, .footer-nav {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header>
+    <header id="header">
         <div class="container">
+            <h1 class="logo">JPNWORKS</h1>
             <nav>
-                <a href="#hero" class="logo">N・<span>ラボ</span></a>
-                <ul class="nav-links">
-                    <li><a href="#concept">哲学</a></li>
-                    <li><a href="#strengths">強み</a></li>
-                    <li><a href="#menu">メニュー</a></li>
-                    <li><a href="#gallery-voice">ギャラリー</a></li>
-                    <li><a href="#access">アクセス</a></li>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
+                    <li><a href="contact.html">ACCESS</a></li>
                 </ul>
-                <button class="menu-toggle" aria-label="Toggle navigation">
-                    <!-- Hamburger icon would go here -->
-                </button>
             </nav>
         </div>
     </header>
 
-    <!-- 1. Hero Area -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>
-                トータルビューティーを、<br>
-                最高品質の体験へ
-            </h1>
-            <p>
-                美容の真髄を知る大人のための、<br>
-                完全予約制ラグジュアリークリニック
-            </p>
-            <div class="hero-cta">
-                <a href="#access" class="cta-button">
-                    無料カウンセリング予約
-                </a>
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="hero">
+            <div class="hero-content">
+                <p class="tagline">DESIGN & STRATEGY</p>
+                <h2>
+                    人の本質のババを刺激する<br>
+                    デザインマーケティング
+                </h2>
+                <a href="#products" class="cta-button primary-button">サービスを見る</a>
             </div>
-        </div>
-    </section>
+            <div class="hero-image">
+                <!-- img_0.jpg placeholder -->
+                <img src="https://source.unsplash.com/random/800x600/?abstract,strategy" alt="マーケティングのイメージ画像" loading="eager">
+            </div>
+        </section>
 
-    <!-- 2. Concept Section -->
-    <section id="concept" class="section-padding">
-        <div class="container">
-            <div class="concept-grid">
-                <div class="concept-text">
-                    <p class="text-gold">OUR PHILOSOPHY</p>
-                    <h3>
-                        美は、<br>
-                        一部ではなく全体で語られる
-                    </h3>
-                    <p>
-                        N・ラボが提供するのは、単なる部分的な施術ではありません。
-                        私たちは、肌、髪、ボディライン、そして自信に満ちた笑顔。そのすべてが調和した状態を「トータルビューティー」と定義します。
-                    </p>
-                    <p>
-                        最先端の技術と、個々のライフスタイルに寄り添うコンシェルジュのようなサポート体制で、貴方の潜在的な美しさを覚醒させます。ここN・ラボで、本質的な美のアップグレードを始めましょう。
-                    </p>
-                </div>
-                <div class="concept-image">
-                    <!-- Concept Sub Image Placeholder -->
-                </div>
+        <!-- コンセプトセクション -->
+        <section id="concept" class="section-padding">
+            <div class="container">
+                <h3 class="section-title">CONCEPT</h3>
+                <p class="concept-text">
+                    JPNWORKS株式会社は、単なるデザイン制作会社ではありません。私たちは、人間が持つ根本的な欲求や無意識の動機（ババ）を深く掘り下げ、そこに響く戦略的なデザインとマーケティングを提供します。表面的な美しさだけでなく、本質的な売上とブランドの成長に貢献します。
+                </p>
             </div>
-        </div>
-    </section>
-
-    <!-- 3. Strengths (N・ラボの強み) -->
-    <section id="strengths" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <p>WHY CHOOSE US</p>
-                <h2>選ばれる理由</h2>
-            </div>
-            
-            <div class="strengths-grid">
-                
-                <div class="strength-item">
-                    <span class="icon-placeholder">✨</span>
-                    <h4>最高水準のパーソナライズ</h4>
-                    <p>
-                        一人ひとりの肌質、骨格、目標を深く理解し、オーダーメイドの施術プランを設計。無駄のない最短ルートで理想を追求します。
-                    </p>
-                </div>
-
-                <div class="strength-item">
-                    <span class="icon-placeholder">🔬</span>
-                    <h4>最先端テクノロジーの採用</h4>
-                    <p>
-                        国内外から厳選した最新鋭の医療機器を導入。高い効果と安全性を両立した、ハイクラスな施術を提供します。
-                    </p>
-                </div>
-
-                <div class="strength-item">
-                    <span class="icon-placeholder">🛡️</span>
-                    <h4>ラグジュアリーな環境保証</h4>
-                    <p>
-                        プライバシーを徹底的に守る完全個室制。五感を満たす静謐な空間で、心身ともにリラックスできる時間をお約束します。
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Menu Details -->
-    <section id="menu" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <p>OUR CORE SERVICES</p>
-                <h2>メニュー一覧</h2>
-            </div>
-
-            <!-- Menu Item 1: 脱毛 (Hair Removal) -->
-            <div class="menu-item">
-                <div class="menu-content">
-                    <p class="text-gold">PERMANENT BEAUTY</p>
-                    <h3>医療脱毛</h3>
-                    <p>
-                        高級肌管理と融合したN・ラボの脱毛は、ただ毛をなくすだけでなく、肌の質感自体を向上させます。刺激を最小限に抑え、素肌の輝きを最大限に引き出す、大人のためのプレミアムケアです。
-                    </p>
-                    <ul>
-                        <li><span class="text-gold">・</span>ハイスピードで完了</li>
-                        <li><span class="text-gold">・</span>美肌効果を同時実現</li>
-                        <li><span class="text-gold">・</span>医師による丁寧な管理</li>
-                    </ul>
-                </div>
-                <div class="menu-image" id="menu-hair-removal"></div>
-            </div>
-
-            <!-- Menu Item 2: ホワイトニング (Whitening) -->
-            <div class="menu-item">
-                <div class="menu-content">
-                    <p class="text-gold">RADIANT SMILE</p>
-                    <h3>医療ホワイトニング</h3>
-                    <p>
-                        自信に満ちた笑顔は、トータルビューティーの鍵です。N・ラボでは、安全かつ劇的な効果が期待できるホワイトニングを提供。ワンランク上の輝きで、貴方の印象を格上げします。
-                    </p>
-                    <ul>
-                        <li><span class="text-gold">・</span>短期間で高い効果</li>
-                        <li><span class="text-gold">・</span>痛みへの配慮</li>
-                        <li><span class="text-gold">・</span>自然な透明感を実現</li>
-                    </ul>
-                </div>
-                <div class="menu-image" id="menu-whitening"></div>
-            </div>
-            
-            <!-- Menu Item 3: スカルプインク (Scalp Ink) -->
-            <div class="menu-item">
-                <div class="menu-content">
-                    <p class="text-gold">HAIRLINE DEFINITION</p>
-                    <h3>スカルプインク（SMP）</h3>
-                    <p>
-                        頭皮の薄毛や生え際の問題を、極めて自然なインク技術で解決します。繊細なドット技術により、髪が増えたような視覚効果をもたらし、若々しさと自信を取り戻します。
-                    </p>
-                    <ul>
-                        <li><span class="text-gold">・</span>熟練の技術者による施術</li>
-                        <li><span class="text-gold">・</span>自然なグラデーション</li>
-                        <li><span class="text-gold">・</span>ダウンタイムが少ない</li>
-                    </ul>
-                </div>
-                <div class="menu-image" id="menu-scalp-ink"></div>
-            </div>
-
-            <!-- Menu Item 4: ボディ (Body) -->
-            <div class="menu-item">
-                <div class="menu-content">
-                    <p class="text-gold">BODY CONTOURING</p>
-                    <h3>ボディメイク・痩身</h3>
-                    <p>
-                        最新の痩身技術を組み合わせ、個々の体型や体質に合わせたカスタムメイドのボディメイクを提供。健康的な美しさを土台に、理想的なシルエットをデザインします。
-                    </p>
-                    <ul>
-                        <li><span class="text-gold">・</span>非侵襲的な最先端機器</li>
-                        <li><span class="text-gold">・</span>部分的な引き締めに対応</li>
-                        <li><span class="text-gold">・</span>トータルバランスの調整</li>
-                    </ul>
-                </div>
-                <div class="menu-image" id="menu-body"></div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 5. Gallery & Testimonials -->
-    <section id="gallery-voice">
-        <div class="container">
-            <div class="section-title">
-                <p>LUXURY ENVIRONMENT</p>
-                <h2>空間ギャラリー</h2>
-            </div>
-
-            <!-- Gallery -->
-            <div class="gallery-wrapper">
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-            </div>
-
-            <div class="section-title" style="margin-top: 50px;">
-                <p>VOICES FROM OUR CLIENTS</p>
-                <h2>お客様の声</h2>
-            </div>
-            
-            <!-- Testimonials -->
-            <div class="voice-grid">
-                <div class="testimonial-card">
-                    <p>
-                        「長年のコンプレックスだった肌の悩みが、数回の施術で劇的に改善しました。スタッフの皆様の対応も洗練されており、訪れるたびに心が満たされます。」
-                    </p>
-                    <span class="customer">M.S様 (40代・経営者)</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>
-                        「トータルビューティーというコンセプトに惹かれましたが、期待以上でした。脱毛からホワイトニングまで一貫して質の高いサービスを受けられるのが魅力です。」
-                    </p>
-                    <span class="customer">K.T様 (30代・専門職)</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>
-                        「完全個室の環境で、誰にも会わずにリラックスして施術を受けられました。結果はもちろん、そのプロセス自体が私にとって贅沢な時間です。」
-                    </p>
-                    <span class="customer">A.H様 (50代・自由業)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Final CTA Banner -->
-    <section class="cta-banner">
-        <h2>貴方の美しさの未来を、N・ラボで描きませんか？</h2>
-        <a href="#access" class="cta-button">
-            無料カウンセリングを予約する
-        </a>
-    </section>
-
-    <!-- 6. Access & Footer -->
-    <section id="access" class="section-padding">
-        <div class="container">
-            <div class="section-title" style="color: var(--color-secondary);">
-                <p class="text-gold">CLINIC INFORMATION</p>
-                <h2>店舗情報</h2>
-            </div>
-            
-            <div class="access-grid">
-                <div class="info-block">
-                    <h3>N・ラボ</h3>
-                    <p>
-                        トータルビューティーを追求するN・ラボは、お客様のプライバシーと快適性を最優先します。お気軽にお問い合わせください。
-                    </p>
-                    <ul>
-                        <li><span class="text-gold">住所:</span> 〒XXX-XXXX 東京都XX区XX 00-00 ラボビルディング 3F</li>
-                        <li><span class="text-gold">電話番号:</span> 0120-XXX-XXXX</li>
-                        <li><span class="text-gold">営業時間:</span> 10:00 - 19:00 (不定休)</li>
-                        <li><span class="text-gold">アクセス:</span> XX線 XX駅より 徒歩3分</li>
-                    </ul>
-                </div>
-                <div class="map-placeholder">
-                    [Google Map Placeholder: N・ラボの位置情報]
-                </div>
-            </div>
-        </div>
+        </section>
         
-        <footer>
-            <p>&copy; 2024 N・ラボ All Rights Reserved. | Designed by World Class Web Designer.</p>
-        </footer>
-    </section>
+        <!-- プロダクト/メニューセクション -->
+        <section id="products" class="section-padding" style="background-color: var(--color-light-gray);">
+            <div class="container">
+                <h3 class="section-title">SERVICES & PRODUCTS</h3>
+                
+                <div class="product-grid">
+                    
+                    <div class="product-item">
+                        <div class="product-image">
+                            <!-- img_1.jpg placeholder -->
+                            <img src="https://source.unsplash.com/random/600x400/?puzzle,game" alt="PUZZLE TRIPPERのイメージ">
+                        </div>
+                        <h4>PUZZLE TRIPPER</h4>
+                        <p class="rank">Amazon 知育玩具部門 1位獲得</p>
+                        <p>独自のデザイン哲学に基づき開発された、人の思考力を刺激する自社プロダクト。ユーザーの好奇心を掴み、熱狂的なファンを生み出す仕組みを実証しています。</p>
+                        <a href="#" class="cta-button secondary-button">詳細を見る</a>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-image">
+                            <!-- img_2.jpg placeholder -->
+                            <img src="https://source.unsplash.com/random/600x400/?consulting,business" alt="コンサルティングのイメージ">
+                        </div>
+                        <h4>成果報酬型コンサルティング</h4>
+                        <p class="rank">契約期間: 1年間 / 報酬: 売り上げの10%</p>
+                        <p>結果にコミットする、リスクを最小限に抑えたコンサルティングプラン。貴社の本質的な強みを発掘し、戦略的なデザインと集客導線で売り上げの最大化を実現します。</p>
+                        <a href="#" class="cta-button secondary-button">お問い合わせ</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- CTAセクション -->
+        <section id="cta">
+            <div class="container">
+                <p class="cta-message">御社のビジネスに本質的な変化をもたらします。</p>
+                <a href="contact.html" class="primary-button large-button">ご相談・お問い合わせ</a>
+            </div>
+        </section>
+        
+        <!-- ギャラリーセクション (デザインの視覚的訴求) -->
+        <section id="gallery" class="section-padding">
+            <div class="container">
+                <h3 class="section-title">WORKS</h3>
+            </div>
+            <div class="gallery-grid">
+                <!-- img_3.jpg placeholder -->
+                <img src="https://source.unsplash.com/random/600x800/?design,minimal" alt="プロジェクト事例1">
+                <!-- img_4.jpg placeholder -->
+                <img src="https://source.unsplash.com/random/800x600/?branding,modern" alt="プロジェクト事例2">
+                <img src="https://source.unsplash.com/random/600x600/?ui,ux" alt="プロジェクト事例3">
+                <img src="https://source.unsplash.com/random/800x500/?webdesign,simple" alt="プロジェクト事例4">
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <p class="footer-logo">JPNWORKS株式会社</p>
+                <address>
+                    〒900-0013<br>
+                    沖縄県那覇市松尾123-45
+                </address>
+            </div>
+            <div class="footer-nav">
+                <p>Quick Links</p>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
+                    <li><a href="contact.html">ACCESS</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 JPNWORKS Corporation. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

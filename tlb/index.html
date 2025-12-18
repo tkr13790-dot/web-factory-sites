@@ -1,23 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <title>Top | とらいち</title>
+    <meta name="description" content="とらいち。焼き鳥屋。飲食。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【とらいち】本格焼き鳥と美酒の店 | TOP</title>
+    
+    <!-- 和風モダンな雰囲気に合うフォント設定 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* CSSカスタムプロパティ */
         :root {
-            --main-color: #2c2c2c; /* 墨色 */
-            --accent-color: #cc3300; /* 赤（炎） */
-            --text-color: #f7f7f7;
-            --bg-light: #ffffff;
-            --bg-dark: #1a1a1a;
+            --color-dark: #1A1A1A; /* 墨色 */
+            --color-light: #F9F7F5; /* 和紙のような白 */
+            --color-accent: #B83A14; /* 炭火をイメージさせるモダンな赤茶 */
             --font-serif: 'Noto Serif JP', serif;
             --font-sans: 'Roboto', sans-serif;
+            --padding-base: 20px;
         }
 
+        /* 共通リセット */
         * {
             margin: 0;
             padding: 0;
@@ -29,539 +35,398 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--main-color);
+            font-family: var(--font-serif);
+            color: var(--color-dark);
+            background-color: var(--color-light);
             line-height: 1.6;
-            background-color: var(--bg-light);
+            min-width: 320px; /* スマホ最小幅対応 */
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: color 0.3s;
         }
 
-        /* --------------------
-            HEADER & NAVIGATION
-        -------------------- */
-        header {
-            position: fixed;
+        ul {
+            list-style: none;
+        }
+
+        /* ------------------------------------- */
+        /* UI/UX: ボタンデザイン (44px以上の最小タッチターゲット) */
+        /* ------------------------------------- */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            border: 2px solid var(--color-accent);
+            color: var(--color-light);
+            background-color: var(--color-accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 44px; /* タッチターゲットサイズ確保 */
+            line-height: 1.5;
+        }
+        .btn:hover {
+            background-color: var(--color-light);
+            color: var(--color-accent);
+        }
+
+        /* ------------------------------------- */
+        /* 1. ヘッダーとナビゲーション (Flexbox) */
+        /* ------------------------------------- */
+        .header {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 15px var(--padding-base);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 28px;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--accent-color);
-            letter-spacing: 2px;
-        }
-        .logo span {
-            font-size: 16px;
-            display: block;
-            color: var(--main-color);
-            font-weight: 400;
+            letter-spacing: 0.1em;
         }
 
-        nav ul {
-            list-style: none;
+        .nav ul {
             display: flex;
+            gap: 15px; /* スマホ時は少し詰める */
         }
 
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            font-size: 16px;
+        .nav a {
+            padding: 10px 5px;
+            display: block;
             position: relative;
         }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* --------------------
-            HERO SECTION (インパクト重視)
-        -------------------- */
+        
+        /* ------------------------------------- */
+        /* 2. ヒーローセクション */
+        /* ------------------------------------- */
         .hero {
-            height: 100vh;
-            width: 100%;
+            height: 60vh; /* モバイルファースト */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: var(--color-light);
+            background-image: url('https://source.unsplash.com/800x600/?yakitori,japanese-grill');
+            background-size: cover;
+            background-position: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-bg {
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            /* 炎と焼き鳥の画像でインパクトを出す */
-            background: url('https://source.unsplash.com/random/1600x1000/?yakitori,flame,izakaya') no-repeat center center/cover;
-            filter: brightness(0.7); 
-            z-index: 1;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.55); 
         }
 
         .hero-content {
-            z-index: 5;
-            color: var(--text-color);
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            padding: 0 var(--padding-base);
+            max-width: 90%;
         }
 
         .hero h1 {
-            font-family: var(--font-serif);
-            font-size: 8vw; 
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.2em;
             font-weight: 700;
-            letter-spacing: 15px;
-            margin-bottom: 20px;
-            animation: fadeInDown 1.5s ease-out;
-        }
-        
-        .hero .shop-name {
-             border-bottom: 5px solid var(--accent-color);
-             display: inline-block;
-             padding-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .hero p {
-            font-size: 2vw;
-            font-weight: 400;
-            margin-bottom: 40px;
-            letter-spacing: 3px;
-            animation: fadeInUp 1.5s ease-out 0.5s backwards;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--accent-color);
-            color: var(--text-color);
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 700;
-            border: 3px solid var(--accent-color);
-            transition: background 0.3s, border-color 0.3s;
-            letter-spacing: 2px;
-        }
-
-        .cta-button:hover {
-            background: transparent;
-            border-color: var(--text-color);
-        }
-
-        /* Animation */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-
-        /* --------------------
-            SECTION COMMON
-        -------------------- */
-        main {
-            padding-top: 80px; 
-        }
-
-        section {
-            padding: 80px 5%;
-            text-align: center;
-        }
-
-        h2 {
-            font-family: var(--font-serif);
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: inline-block;
-            position: relative;
-            letter-spacing: 2px;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-        }
-
-        .sub-text {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* --------------------
-            CONCEPT SECTION
-        -------------------- */
-        .concept-grid {
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            align-items: center;
-            text-align: left;
+        /* ------------------------------------- */
+        /* 3. セクション共通 */
+        /* ------------------------------------- */
+        .section {
+            padding: 60px var(--padding-base);
             max-width: 1200px;
-            margin: 50px auto 0;
+            margin: 0 auto;
         }
 
-        .concept-text {
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+
+        /* ------------------------------------- */
+        /* 4. コンセプト / 特徴 (CSS Grid) */
+        /* ------------------------------------- */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* スマホデフォルト */
+            gap: 30px;
+        }
+
+        .concept-item {
+            text-align: center;
+            padding: 25px;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .concept-item h3 {
+            font-size: 1.4rem;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------------- */
+        /* 5. メニューハイライト (Flexbox) */
+        /* ------------------------------------- */
+        .menu-highlight {
+            background-color: #EFEBE7;
+            padding: 60px 0;
+        }
+
+        .menu-inner {
+            display: flex;
+            flex-direction: column; /* スマホデフォルト：縦並び */
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .menu-text, .menu-image {
             flex: 1;
-            padding-right: 20px;
-        }
-
-        .concept-text h3 {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--main-color);
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
+            padding: 0 var(--padding-base);
         }
         
-        .concept-text p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            text-align: justify;
+        .menu-text {
+            order: 2; /* テキストを下へ */
+            margin-top: 30px;
+        }
+        .menu-image {
+            order: 1;
         }
 
-        .concept-image {
-            flex: 1;
-            overflow: hidden;
-            border: 5px solid var(--main-color);
-            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .concept-image img {
+        .menu-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s;
-        }
-        .concept-image:hover img {
-            transform: scale(1.05);
+            object-fit: cover;
+            aspect-ratio: 4 / 3; /* スマホでの見え方を考慮 */
         }
 
-
-        /* --------------------
-            MENU PREVIEW
-        -------------------- */
-        .menu-preview {
-            background-color: #f7f7f7;
-            border-top: 1px solid #eee;
-        }
-
-        .menu-cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            width: 30%;
-            background: var(--bg-light);
-            border: 1px solid #ddd;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s;
+        .menu-text h2 {
+            text-align: left;
+            margin-bottom: 20px;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card-body h3 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-        .card-body p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* --------------------
-            ACCESS & INFO
-        -------------------- */
-        .info {
-            background-color: var(--bg-dark);
-            color: var(--text-color);
-            padding: 60px 5%;
-        }
-
-        .info h2 {
-            color: var(--text-color);
-        }
-        .info h2::after {
-            background: var(--accent-color);
-        }
-        .info .sub-text {
-            color: #aaa;
-        }
-
-        .info-details {
-            margin-top: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-            border: 1px solid #444;
-            padding: 30px;
-        }
-
-        .info-details p {
-            margin: 15px 0;
-            font-size: 18px;
-            font-family: var(--font-serif);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dotted #555;
-            padding-bottom: 5px;
-        }
-        .info-details strong {
-            color: var(--accent-color);
-            font-weight: 400;
-        }
-
-        .reservation-cta {
-            margin-top: 40px;
-        }
-
-        /* --------------------
-            FOOTER
-        -------------------- */
-        footer {
+        /* ------------------------------------- */
+        /* 6. アクセス / CTA */
+        /* ------------------------------------- */
+        .access-info {
             text-align: center;
-            padding: 20px;
-            background: var(--main-color);
-            color: #999;
-            font-size: 12px;
+            margin-top: 20px;
         }
 
-        /* Responsive adjustment (Mobile Friendly) */
-        @media (max-width: 768px) {
-            header {
-                padding: 10px 3%;
+        .access-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        .access-info p {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .access-cta {
+            margin-top: 30px;
+        }
+
+        /* ------------------------------------- */
+        /* 7. フッター */
+        /* ------------------------------------- */
+        .footer {
+            background-color: var(--color-dark);
+            color: #AAAAAA;
+            padding: 30px var(--padding-base);
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+        }
+
+
+        /* ===================================== */
+        /* PC/タブレット向けのスタイル (幅 769px 以上) */
+        /* ===================================== */
+        @media (min-width: 769px) {
+            
+            .section {
+                padding: 100px var(--padding-base);
             }
-            nav ul {
-                display: none; 
-            }
-            .logo {
-                font-size: 24px;
+            .section-title {
+                font-size: 2.8rem;
             }
             
+            /* 2. ヒーロー */
             .hero {
-                height: 80vh;
+                height: 90vh;
             }
             .hero h1 {
-                font-size: 12vw;
-                letter-spacing: 5px;
+                font-size: 6rem;
             }
             .hero p {
-                font-size: 4vw;
-            }
-
-            section {
-                padding: 40px 3%;
+                font-size: 2rem;
             }
             
+            /* 4. コンセプト (PC: 横並び 3カラム) */
             .concept-grid {
-                flex-direction: column;
-                margin-top: 30px;
+                grid-template-columns: repeat(3, 1fr);
             }
-            .concept-text {
-                padding-right: 0;
-                text-align: center;
+            
+            /* 5. メニューハイライト (PC: 横並び) */
+            .menu-inner {
+                flex-direction: row;
+                gap: 50px;
             }
-            .concept-text h3 {
-                 border-left: none;
-                 padding-left: 0;
-                 border-bottom: 2px solid var(--accent-color);
-                 padding-bottom: 10px;
+            .menu-text {
+                order: initial;
+                margin-top: 0;
             }
-            .concept-text p {
-                text-align: left;
+            .menu-image {
+                order: initial;
+            }
+            
+            .menu-image img {
+                 aspect-ratio: 16 / 10;
             }
 
-            .concept-image {
-                order: -1;
-                margin-bottom: 20px;
-            }
-            
-            .menu-cards {
+            .menu-text {
+                display: flex;
                 flex-direction: column;
-                gap: 20px;
-            }
-            .card {
-                width: 100%;
-            }
-            
-            .info-details p {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .info-details strong {
-                width: auto;
-                margin-bottom: 5px;
-            }
-            .cta-button {
-                font-size: 16px;
-                padding: 12px 30px;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            とらいち <span>Yakitori Dining</span>
+    
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">とらいち</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
+                    <li><a href="contact.html">ACCESS</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">TOP</a></li>
-                <li><a href="about.html">CONCEPT</a></li>
-                <li><a href="contact.html">ACCESS</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <!-- ヒーローセクション (インパクト重視) -->
+        
+        <!-- ヒーローセクション (LPのメインビジュアルとキャッチ) -->
         <section class="hero">
-            <div class="hero-bg"></div>
             <div class="hero-content">
-                <h1 class="shop-name">とらいち</h1>
-                <p>炎と煙が織りなす、至高の串。<br>大人のためのモダン焼き鳥屋。</p>
-                <a href="#access-info" class="cta-button">営業時間・アクセスを確認する</a>
+                <p>洗練された和の空間で味わう、匠の技が光る極上の一串</p>
+                <h1>とらいち</h1>
+                <a href="#access" class="btn">店舗情報・アクセス</a>
             </div>
         </section>
 
         <!-- コンセプトセクション -->
-        <section class="concept">
-            <h2>とらいちのこだわり</h2>
-            <p class="sub-text">CONCEPT</p>
-            <div class="concept-grid">
-                <div class="concept-text">
-                    <h3>熟練の技と厳選素材</h3>
-                    <p>当店の焼き鳥は、毎日仕入れる新鮮な鶏肉を、熟練の職人が一本一本丁寧に串打ちし、備長炭の強火で一気に焼き上げます。外はパリッと、中はジューシー。秘伝のタレと塩で素材本来の味を最大限に引き出します。</p>
-                    <p>和風モダンな空間で、落ち着いた時間と本格的な味わいをお楽しみください。デートや接待にも最適です。</p>
-                    <a href="about.html" class="cta-button" style="background: transparent; color: var(--main-color); border-color: var(--main-color);">詳しく見る</a>
-                </div>
-                <div class="concept-image">
-                    <!-- 和風モダンをイメージする内装または素材の画像 -->
-                    <img src="https://source.unsplash.com/random/800x600/?japanese+interior,izakaya" alt="和風モダンな店舗内装">
-                </div>
-            </div>
-        </section>
-
-        <!-- メニュープレビューセクション -->
-        <section class="menu-preview">
-            <h2>厳選されたメニュー</h2>
-            <p class="sub-text">MENU PREVIEW</p>
-            <div class="menu-cards">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://source.unsplash.com/random/400x300/?yakitori,skewers" alt="焼き鳥の画像">
-                    </div>
-                    <div class="card-body">
-                        <h3>至高の焼き鳥</h3>
-                        <p>定番のもも串から、希少部位まで。備長炭で香ばしく焼き上げた職人の一串をご堪能ください。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://source.unsplash.com/random/400x300/?sake,japanese+alcohol" alt="日本酒の画像">
-                    </div>
-                    <div class="card-body">
-                        <h3>厳選アルコール</h3>
-                        <p>焼き鳥の味を引き立てる、全国から選りすぐった日本酒、焼酎、クラフトビールを取り揃えています。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://source.unsplash.com/random/400x300/?appetizer,tsukemono" alt="一品料理の画像">
-                    </div>
-                    <div class="card-body">
-                        <h3>季節の一品料理</h3>
-                        <p>旬の食材を活かしたサイドメニューや、〆の一品も充実。いつ来ても新しい発見があります。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- アクセス・店舗情報セクション -->
-        <section class="info" id="access-info">
-            <h2>店舗情報</h2>
-            <p class="sub-text">ACCESS & INFORMATION</p>
+        <section id="concept" class="section">
+            <h2 class="section-title">とらいちのこだわり</h2>
             
-            <div class="info-details">
-                <p><strong>所在地</strong><span>宮平123番地</span></p>
-                <p><strong>営業時間</strong><span>17:00〜23:00 (L.O. 22:30)</span></p>
-                <p><strong>定休日</strong><span>不定休</span></p>
-                <p><strong>ご予約</strong><span>098-XXXX-XXXX (お電話にて)</span></p>
-            </div>
-
-            <div class="reservation-cta">
-                <a href="contact.html" class="cta-button">予約・アクセス詳細へ</a>
+            <div class="concept-grid">
+                
+                <div class="concept-item">
+                    <h3>【炭】備長炭の薫り</h3>
+                    <p>火力が強く香りの良い備長炭のみを使用。素材の旨味を閉じ込め、芳ばしい薫りをまとわせた最高の焼き加減でお届けします。</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h3>【鮮度】朝引きの鶏肉</h3>
+                    <p>毎朝仕入れる新鮮な鶏肉を、熟練の職人が一本一本丁寧に串打ち。素材本来のジューシーな味わいを最大限に引き出します。</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h3>【酒】厳選された銘酒</h3>
+                    <p>焼き鳥の旨味をさらに高めるために、全国各地から厳選した日本酒や焼酎をご用意。最高のペアリングをお楽しみください。</p>
+                </div>
+                
             </div>
         </section>
 
+        <!-- メニューハイライトセクション -->
+        <section id="menu" class="menu-highlight">
+            <div class="menu-inner">
+                <div class="menu-text">
+                    <h2 class="section-title">極上の一串</h2>
+                    <p>定番の部位はもちろん、希少な「つなぎ」や「ふりそで」など、通を唸らせる特別な串もご用意しております。タレは秘伝、塩は岩塩を使用し、お客様のお好みに合わせて提供いたします。</p>
+                    <ul style="margin-top: 20px; padding-left: 20px; list-style: disc; font-size: 1.1rem;">
+                        <li>串焼き各種：280円〜</li>
+                        <li>特選地鶏：時価</li>
+                        <li>アルコール各種</li>
+                    </ul>
+                </div>
+                <div class="menu-image">
+                    <!-- Unsplash Source: 焼き鳥、居酒屋の画像 -->
+                    <img src="https://source.unsplash.com/800x600/?yakitori,japanese-pub" alt="美味しそうな焼き鳥の盛り合わせ">
+                </div>
+            </div>
+        </section>
+
+        <!-- アクセス/店舗情報セクション (CTA) -->
+        <section id="access" class="section">
+            <h2 class="section-title">アクセス</h2>
+            
+            <div class="access-info">
+                <h3>焼き鳥 とらいち</h3>
+                
+                <p><strong>住所:</strong> 宮平123番地</p>
+                <p><strong>営業時間:</strong> 17:00 〜 23:00 (最終入店 22:00)</p>
+                <p>定休日: 不定休</p>
+                
+                <div class="access-cta">
+                    <a href="contact.html" class="btn">地図・詳細な道順を確認する</a>
+                </div>
+            </div>
+        </section>
+        
     </main>
 
-    <footer>
-        <small>&copy; 2024 TORAICHI Yakitori Dining. All rights reserved.</small>
+    <footer class="footer">
+        <p>焼き鳥 とらいち | 宮平123番地 17:00〜23:00</p>
+        <p>&copy; 2024 TORAIICHI. All Rights Reserved.</p>
     </footer>
 
 </body>

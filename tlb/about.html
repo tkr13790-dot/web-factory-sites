@@ -1,294 +1,421 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
+    <!-- SEO対策必須項目 -->
+    <title>Concept | とらいち</title>
+    <meta name="description" content="とらいち。焼き鳥屋。飲食。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONCEPT | 焼き鳥 とらいち</title>
+    <meta charset="UTF-8">
+
     <style>
-        /* -----------------------------------------------------
-           CSS - 和風モダンテーマ
-           使用フォント: Shippori Mincho (明朝体)
-        ----------------------------------------------------- */
-        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap');
+        /* ------------------------------------- */
+        /* BASE & UTILITY - モバイルファースト */
+        /* ------------------------------------- */
 
         :root {
-            --main-font: 'Shippori Mincho', 'ヒラギノ明朝 ProN', '游明朝', YuMincho, serif;
-            --accent-color: #a84400; /* 深い朱色 */
-            --background-light: #fdfdfd;
-            --text-color: #222;
+            --color-primary: #8B0000; /* 和の深い赤 */
+            --color-dark: #1A1A1A; /* モダンな黒 */
+            --color-light: #F9F9F9;
+            --color-accent: #B8860B; /* ゴールド系のアクセント */
+            --spacing-large: 64px;
+            --spacing-medium: 32px;
+            --font-serif: "Yu Mincho", "Hiragino Mincho ProN", serif;
+            --font-sans: "Helvetica Neue", Arial, sans-serif;
         }
 
-        /* リセットと基本設定 */
-        body {
-            font-family: var(--main-font);
-            color: var(--text-color);
-            background-color: var(--background-light);
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            text-rendering: optimizeLegibility;
-        }
         *, *::before, *::after {
             box-sizing: border-box;
-        }
-
-        /* ヘッダーとナビゲーション */
-        header {
-            background-color: #1c1c1c;
-            color: #fff;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            color: #fff;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
             margin: 0;
-            display: flex;
-        }
-        nav li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 0 20px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        nav li a:hover {
-            color: var(--accent-color);
+            padding: 0;
         }
 
-        /* メインコンテンツ */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1 {
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-            color: #222;
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            -webkit-text-size-adjust: 100%;
         }
-        h1::after {
-            content: "理念とこだわり";
-            display: block;
-            font-size: 16px;
-            font-weight: 400;
-            color: #888;
-            margin-top: 10px;
-            letter-spacing: 0.2em;
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            color: var(--color-dark);
         }
 
         h2 {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-top: 50px;
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 4px solid var(--accent-color);
-            letter-spacing: 0.05em;
-        }
-        p {
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-
-        /* コンセプトセクションのスタイル */
-        .concept-section {
-            display: flex;
-            align-items: center;
-            margin-bottom: 100px;
-            gap: 50px;
-        }
-        .concept-section.reverse {
-            flex-direction: row-reverse;
-        }
-        .concept-text {
-            flex: 1;
-            padding: 20px 0;
-        }
-        .concept-image {
-            flex: 1;
-            overflow: hidden;
-            border-radius: 4px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        .concept-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            min-height: 350px;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-medium);
+            text-align: center;
+            letter-spacing: 0.1em;
         }
         
-        .section-title-japanese {
-            font-size: 24px;
-            color: #555;
-            margin-bottom: 10px;
-            letter-spacing: 0.1em;
-            border-bottom: 1px solid #ddd;
-            display: inline-block;
-            padding-bottom: 5px;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        /* 店舗情報 */
-        .store-details {
-            margin-top: 80px;
-            padding: 40px;
-            background-color: #fff;
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        .store-details h2 {
-            text-align: center;
-            border-left: none;
-            padding-left: 0;
-            margin-bottom: 40px;
-        }
-        .detail-list {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 20px 30px;
-            max-width: 600px;
+        .container {
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        .detail-list dt {
-            font-weight: 700;
-            color: var(--accent-color);
-            border-right: 2px solid #eee;
-            padding-right: 15px;
-        }
-        .detail-list dd {
-            margin: 0;
+            padding: 0 20px;
         }
 
-        /* フッター */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ------------------------------------- */
+        /* HEADER & NAVIGATION */
+        /* ------------------------------------- */
+
+        header {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            padding: 5px 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            overflow-x: auto; /* スマホで項目が多い場合に対応 */
+        }
+
+        nav a {
+            display: inline-block;
+            color: var(--color-light);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            /* UI/UX: タッチターゲットサイズ 44px以上を確保 */
+            min-width: 44px;
+            min-height: 44px;
+            padding: 12px 15px;
+            transition: background-color 0.3s;
+            display: flex; /* 中央寄せ用 */
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav a:hover, nav a[href="about.html"] {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-accent);
+        }
+
+
+        /* ------------------------------------- */
+        /* MAIN CONTENT - CONCEPT SECTION */
+        /* ------------------------------------- */
+
+        main {
+            padding-top: var(--spacing-medium);
+            padding-bottom: var(--spacing-large);
+        }
+        
+        .hero-concept {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            text-align: center;
+            padding: var(--spacing-large) 20px;
+            margin-bottom: var(--spacing-large);
+        }
+
+        .hero-concept h1 {
+            font-size: 3rem;
+            color: var(--color-light);
+            margin-bottom: 10px;
+        }
+        
+        .hero-concept p {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-large);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: var(--color-primary);
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+        }
+
+        /* コンテンツブロック (Grid/Flexbox) */
+        .concept-block {
+            padding: var(--spacing-medium) 0;
+            margin-bottom: var(--spacing-large);
+            display: grid;
+            gap: var(--spacing-medium);
+            grid-template-areas: 
+                "image"
+                "text"; /* スマホでは縦積み */
+        }
+
+        .concept-block:nth-child(even) .concept-image {
+            order: 0; /* 偶数番目はデフォルトの配置 (画像上、テキスト下) */
+        }
+
+        .concept-image {
+            grid-area: image;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .concept-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .concept-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .concept-text {
+            grid-area: text;
+            padding: 10px 0;
+        }
+
+        .concept-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--color-primary);
+            padding-left: 10px;
+        }
+
+        /* 店舗情報カード (Flexbox) */
+        .info-cards {
+            display: flex;
+            flex-direction: column; /* スマホでは縦積み */
+            gap: 20px;
+            padding: var(--spacing-medium) 0;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: var(--spacing-medium);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .info-card h3 {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------------- */
+        /* FOOTER */
+        /* ------------------------------------- */
+
         footer {
-            background-color: #1c1c1c;
-            color: #bbb;
+            background-color: var(--color-dark);
+            color: rgba(255, 255, 255, 0.7);
             text-align: center;
             padding: 20px 0;
-            font-size: 14px;
-            margin-top: 50px;
+            font-size: 0.8rem;
         }
 
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            h1 { font-size: 36px; margin-bottom: 50px; }
-            h2 { font-size: 24px; }
-            .concept-section {
-                flex-direction: column;
+        /* ------------------------------------- */
+        /* MEDIA QUERIES (PC対応: 769px以上) */
+        /* ------------------------------------- */
+
+        @media (min-width: 769px) {
+            
+            h2 {
+                font-size: 3rem;
             }
-            .concept-section.reverse {
-                flex-direction: column;
+
+            /* ナビゲーションの調整 */
+            nav ul {
+                gap: 20px;
             }
-            .detail-list {
-                grid-template-columns: 1fr;
+
+            /* コンセプトグリッドを横並びにする */
+            .concept-block {
+                grid-template-columns: 1fr 1fr; /* 2カラム */
+                gap: 60px;
+                align-items: center;
             }
-            .detail-list dt {
-                border-right: none;
-                border-bottom: 1px dotted #ddd;
-                padding-bottom: 5px;
+            
+            /* 画像とテキストを交互に配置 (和モダンな非対称性) */
+            .concept-block:nth-child(even) {
+                grid-template-areas: "text image"; /* 偶数番目はテキスト左、画像右 */
             }
+            
+            .concept-image img {
+                height: 450px;
+            }
+            
+            /* 店舗情報カードを横並びにする */
+            .info-cards {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .info-card {
+                max-width: 30%;
+            }
+
+            .section-title {
+                 margin-bottom: var(--spacing-large) 0;
+            }
+
         }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">とらいち</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">TOP</a></li>
-                <li><a href="about.html">CONCEPT</a></li>
-                <li><a href="contact.html">ACCESS</a></li>
-            </ul>
-        </nav>
+        <div class="container header-content">
+            <div class="logo">
+                とらいち
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="about.html">CONCEPT</a></li>
+                    <li><a href="contact.html">ACCESS</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container">
+    <main>
         
-        <h1>CONCEPT</h1>
-
-        <section id="concept-story" class="concept-section">
-            <div class="concept-text">
-                <p class="section-title-japanese">理念</p>
-                <h2>伝統と革新、職人が繋ぐ至高の一串</h2>
-                <p>
-                    店名「とらいち」の由来は、「虎のように力強く、常に一番の品質を追求する」という創業者の揺るぎない決意にあります。
-                    当店が目指すのは、単なる食事の場ではなく、五感で楽しむ焼き鳥体験。
-                </p>
-                <p>
-                    伝統的な備長炭の火入れ技術を継承しつつ、現代の嗜好に合わせた新しい味わいを追求しています。
-                    一本の串に込められた職人の熱意と、素材本来の旨味を引き出す技術こそが、とらいちの核心です。
-                    私たちは、この情熱をお客様の日常に「小さな贅沢」としてお届けします。
-                </p>
-            </div>
-            <div class="concept-image">
-                <!-- 備長炭で焼く焼き鳥のイメージ (Unsplash Sourceを使用) -->
-                <img src="https://source.unsplash.com/random/500x400/?yakitori,charcoal" alt="備長炭で丁寧に焼かれた焼き鳥">
+        <!-- ヒーローセクション -->
+        <section class="hero-concept">
+            <div class="container">
+                <h1>CONCEPT</h1>
+                <p>— 継承される伝統と、進化する串 —</p>
             </div>
         </section>
 
-        <section id="craftsmanship" class="concept-section reverse">
-            <div class="concept-text">
-                <p class="section-title-japanese">こだわり</p>
-                <h2>厳選素材と秘伝の火入れ</h2>
-                <p>
-                    焼き鳥の味を決めるのは、素材と火加減。とらいちでは、その両方に一切妥協しません。
-                    鶏肉は、指定農場から仕入れる鮮度抜群の銘柄鶏を使用し、部位ごとに最適な下処理を施します。
-                </p>
-                <p>
-                    特に重要なのは「火入れ」。熟練の職人が、炭の状態、気温、肉の部位を見極め、わずか数秒単位で串を回転させます。
-                    外はカリッと香ばしく、中はジューシーに。この絶妙な火加減が、肉の旨味を閉じ込め、他では味わえない一串を創り出します。
-                </p>
-                <p>
-                    アルコール類も、焼き鳥の風味を最大限に引き立てる厳選された日本酒や焼酎をご用意しております。
-                </p>
+        <!-- 1. コンセプトストーリー -->
+        <section class="container">
+            <div class="section-title">
+                <h2>串にかける情熱</h2>
             </div>
-            <div class="concept-image">
-                <!-- 職人が串を打つ/焼いている手のイメージ (Unsplash Sourceを使用) -->
-                <img src="https://source.unsplash.com/random/500x400/?chef,grill,japanese" alt="焼き鳥を焼く職人の手元">
+
+            <!-- Block 1: 焼き鳥のこだわり -->
+            <div class="concept-block">
+                <div class="concept-image">
+                    <!-- Unsplash Source: 炭火で焼かれる焼き鳥 -->
+                    <img src="https://source.unsplash.com/800x600/?yakitori,charcoal,grill" alt="炭火で焼き上げられる焼き鳥">
+                </div>
+                <div class="concept-text">
+                    <h3>炭火が織りなす極上の香り</h3>
+                    <p>とらいちの焼き鳥は、厳選された国産鶏を、熟練の職人が一本一本丁寧に串打ちし、高温の備長炭で焼き上げます。皮はパリッと香ばしく、肉はジューシーに。絶妙な火加減が、素材本来の旨味を最大限に引き出します。和の空間で、最高の状態の一串をご堪能ください。</p>
+                    <p>「焼き」へのこだわりこそが、とらいちの魂です。</p>
+                </div>
+            </div>
+
+            <!-- Block 2: 現代的な解釈 (モダン) -->
+            <div class="concept-block">
+                <div class="concept-image">
+                    <!-- Unsplash Source: 和モダンな内装 -->
+                    <img src="https://source.unsplash.com/800x600/?japanese,modern,interior" alt="モダンで落ち着いた和風の内装">
+                </div>
+                <div class="concept-text">
+                    <h3>時を超えて愛される空間</h3>
+                    <p>伝統的な焼き鳥屋の温かみを残しつつ、洗練されたモダンなデザインを取り入れました。漆喰の壁、木材の温もり、そして間接照明が織りなす空間は、日常を忘れさせる非日常的な体験を提供します。デートや会食にも最適です。最高の料理は、最高の場所で。</p>
+                </div>
+            </div>
+
+            <!-- Block 3: ドリンクとペアリング -->
+            <div class="concept-block">
+                <div class="concept-image">
+                    <!-- Unsplash Source: 日本酒とグラス -->
+                    <img src="https://source.unsplash.com/800x600/?sake,cocktail,japanesealcohol" alt="日本酒とアルコールのペアリング">
+                </div>
+                <div class="concept-text">
+                    <h3>串を引き立てる銘酒たち</h3>
+                    <p>定番の生ビールはもちろん、とらいちでは焼き鳥との極上のペアリングを提案します。全国から厳選した日本酒、焼酎、さらにはモダンなクラフトジンやワインも取り揃えております。専門知識を持ったスタッフが、お客様の一串に最適な一杯をご案内いたします。</p>
+                </div>
             </div>
         </section>
+        
+        <!-- 2. 店舗情報 -->
+        <section class="container">
+            <div class="section-title">
+                <h2>店舗情報</h2>
+            </div>
+            
+            <div class="info-cards">
+                
+                <div class="info-card">
+                    <h3>住所</h3>
+                    <p>宮平123番地</p>
+                    <p><a href="contact.html" style="color: var(--color-accent); font-weight: bold;">[ACCESS]</a></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>営業時間</h3>
+                    <p>17:00 〜 23:00 (L.O. 22:30)</p>
+                    <p>定休日：不定休</p>
+                </div>
 
-        <section id="details" class="store-details">
-            <h2>店舗詳細情報</h2>
-            <dl class="detail-list">
-                <dt>店舗名</dt>
-                <dd>とらいち</dd>
-
-                <dt>業種</dt>
-                <dd>焼き鳥・居酒屋</dd>
-
-                <dt>メニュー</dt>
-                <dd>自慢の焼き鳥各種、季節のおすすめ串、厳選アルコール（日本酒、焼酎、ビール）</dd>
-
-                <dt>所在地</dt>
-                <dd>宮平123番地</dd>
-
-                <dt>営業時間</dt>
-                <dd>17:00 〜 23:00 (L.O. 22:30)</dd>
-            </dl>
+                <div class="info-card">
+                    <h3>主なメニュー</h3>
+                    <p>焼き鳥各種 / 季節の一品料理</p>
+                    <p>日本酒・焼酎・ビール・その他アルコール</p>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2024 TORAICHI YAKITORI. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 TORAICHI All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
